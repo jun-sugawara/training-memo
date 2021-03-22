@@ -1,24 +1,45 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| nickname           | string   | null: false               |
+| email              | string   | null: false, unique: true |
+| encrypted_password | string   | null: false               |
+| age                | integer  | null: false               |
+| gender             | integer  | null: false               |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :training_records
+- has_many :body_records
 
-* System dependencies
 
-* Configuration
+## Training_recordsテーブル
 
-* Database creation
+| Column          | Type       | Options           |
+| --------------- | ---------- | ----------------- |
+| date            | integer    | null: false       |
+| training_event  | integer    | null: false       |
+| reps            | integer    | null: false       |
+| training_weight | integer    | null: false       |
+| set             | integer    | null: false       |
+| user            | references | foreign_key: true |
 
-* Database initialization
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
 
-* Deployment instructions
+## Body_recordsテーブル
 
-* ...
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| date             | integer    | null: false       |
+| body_weight      | integer    | null: false       |
+| fat              | integer    | null: false       |
+| todays_condition | string     |                   |
+| user             | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
