@@ -1,7 +1,7 @@
 class CreateTrainingRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :training_records do |t|
-      t.integer    :date,            null: false
+      t.date       :date,            null: false
       t.integer    :training_event,  null: false
       t.integer    :training_weight, null: false
       t.integer    :reps,            null: false
