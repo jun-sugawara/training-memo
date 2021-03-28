@@ -1,14 +1,5 @@
-<h1>ここはトップページの予定</h1>
-  <div class="form">
-    <div class=form-input>
-      <input class="from-message" placeholder= "日付を選択してください">
-      <input class="from-message" placeholder= "種目を選択してください">
-      <input class="from-message" placeholder= "重さを入力してください(例: 70.5)">
-      <input class="from-message" placeholder= "回数を入力してください(例: 5)">
-      <input class="from-message" placeholder= "セット数を入力してください(例: 3)">
-    </div>
-      <input class="form-submit" type="submit" value="保存">
-  </div>
+<h1>ここはマイページの予定</h1>
+<%= link_to "トレーニングを入力する",  new_training_record_path, class: "#" %>
 
   <% @training_records.each do |training_record| %>
     <p>日付: <%= training_record.date %></p>
@@ -16,5 +7,11 @@
     <p>重さ: <%= training_record.training_weight %></p>
     <p>回数: <%= training_record.reps %></p>
     <p>セット数: <%= training_record.set %></p>
+      <li>
+        <%= link_to "編集", edit_training_record_path(training_record.id), method: :get  %>
+      </li>
+      <li>
+        <%= link_to "削除", "/training_records/#{training_record.id}", method: :delete %>
+      </li>
   <% end %>
     
