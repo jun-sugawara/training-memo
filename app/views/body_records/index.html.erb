@@ -1,0 +1,15 @@
+<h1>体組成記録のページ</h1>
+
+    <% @body_records.each do |body_record| %>
+    <p>日付: <%= body_record.date %></p>
+    <p>体重: <%= body_record.body_weight %>Kg</p>
+    <p>体脂肪率: <%= body_record.fat %>%</p>
+    <p>今日の体調: <%= body_record.todays_condition %></p>
+      <li>
+        <%= link_to "編集", edit_body_record_path(body_record.id), method: :get  %>
+      </li>
+      <li>
+        <%= link_to "削除", "/body_records/#{body_record.id}", method: :delete %>
+      </li>
+  <% end %>
+    

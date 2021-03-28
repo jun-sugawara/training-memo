@@ -1,0 +1,12 @@
+<h1>体組成を入力</h1>
+  <div class="form">
+    <div class=form-input>
+      <%= form_with(model: @body_record, local: true) do |f| %>
+        <%= f.text_field :date, placeholder: "日付を選択してください" %>
+        <%= f.text_field :body_weight, placeholder: "体重を入力してください(例: 50.5)" %>
+        <%= f.text_field :fat, placeholder: "体脂肪を入力してください(例: 18.7)" %>
+        <%= f.text_field :todays_condition, placeholder: "体調を選択してください" %>
+     <%= f.submit "保存" %>   
+    </div>
+      <% end %>
+  </div>
