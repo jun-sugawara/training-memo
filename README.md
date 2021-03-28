@@ -37,7 +37,7 @@
 | date             | integer    | null: false       |
 | body_weight      | integer    | null: false       |
 | fat              | integer    | null: false       |
-| todays_condition | string     |                   |
+| todays_condition | integer    |                   |
 | user             | references | foreign_key: true |
 
 ### Association
