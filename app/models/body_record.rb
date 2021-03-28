@@ -1,0 +1,2 @@
+class BodyRecord < ApplicationRecord
+end
