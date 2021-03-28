@@ -18,10 +18,10 @@
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
-| date            | integer    | null: false       |
+| date            | date       | null: false       |
 | training_event  | integer    | null: false       |
-| reps            | integer    | null: false       |
 | training_weight | integer    | null: false       |
+| reps            | integer    | null: false       |
 | set             | integer    | null: false       |
 | user            | references | foreign_key: true |
 

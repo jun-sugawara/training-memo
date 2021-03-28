@@ -1,0 +1,13 @@
+<h1>トレーニング記録を入力</h1>
+  <div class="form">
+    <div class=form-input>
+      <%= form_with(model: @training_record, local: true) do |f| %>
+        <%= f.text_field :date, placeholder: "日付を選択してください" %>
+        <%= f.text_field :training_event, placeholder: "種目を選択してください" %>
+        <%= f.text_field :training_weight, placeholder: "重さを入力してください(例: 70.5)" %>
+        <%= f.text_field :reps, placeholder: "回数を入力してください(例: 5)" %>
+        <%= f.text_field :set, placeholder: "セット数を入力してください(例: 3)" %>
+     <%= f.submit "保存" %>   
+    </div>
+      <% end %>
+  </div>
