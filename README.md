@@ -34,7 +34,7 @@
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- |
-| date             | integer    | null: false       |
+| date             | date       | null: false       |
 | body_weight      | integer    | null: false       |
 | fat              | integer    | null: false       |
 | todays_condition | integer    |                   |

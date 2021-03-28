@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_28_060127) do
 
   create_table "body_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "date", null: false
+    t.date "date", null: false
     t.integer "body_weight", null: false
     t.integer "fat", null: false
     t.integer "todays_condition"
