@@ -1,8 +1,165 @@
-.form-input {
-  display: flex;
-  flex-direction: column;  
+/* ユニバーサルセレクタで余白リセット */
+* {
+	margin: 0;
+	padding: 0;
 }
 
-.service-title {
-  color: blueviolet;
+body {
+	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+ 
+/* サイト共通コンテナ */
+.container {
+  max-width: 1000px;
+	margin: 0 auto;
+  background-color: #efefef;
+  text-align: center;
+}
+
+/* float解除用 */
+.clearlist {
+  content: "";
+  display: block;
+  clear: both;
+}
+ 
+/* ヘッダー部スタイル設定 */
+header {
+  background-color: #efefef;
+}
+// サイトタイトル
+.site_title {
+  font-size: 40px;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+// 未ログイン時のログイン/新規登録表示
+.login_nav {
+  font-size: 30px;
+  margin-left: 30px;
+  padding-top: 10px;
+}
+
+// ログイン時のログアウト表示
+.sign_out_nav {
+  font-size: 30px;
+  margin-left: 80px;
+  padding-top: 10px;
+}
+
+#site_logo {
+	float: left;
+	width: 65%;
+}
+// お問い合わせはこちらから
+#site_reserve {
+	float: right;
+	// width: 35%;
+	text-align: right;
+  margin-right: 20px;
+}
+// 電話番号
+.site_tel {
+	font-size: 1.8em;
+	color: #C20D23;
+}
+
+// ナビゲーション部分スタイル
+nav {
+  background-color: #C20D23;
+}
+ 
+nav ul {
+  list-style: none;
+}
+ 
+nav ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+ 
+nav li {
+	float: left;
+	width: 33%;
+	text-align: center;
+}
+ 
+nav a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+nav a:hover {
+	opacity: 0.7;
+}
+
+
+/* メイン部スタイル設定 */
+
+// 「筋トレしていてこんなことありませんか？」スタイル指定
+#main_image img {
+	width: 100%;
+  margin-bottom: 20px;
+}
+
+.main_text {
+  font-size: 30px;
+  text-align: center;
+  margin: 50px 50px 20px 50px;
+}
+
+// 「悩み」部分スタイル指定
+.appeal {
+  position: relative;
+  left: 50%;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.appeal_box {
+  position: relative;
+  float: right;
+  left: -50%;
+  margin-bottom: 20px;
+}
+
+// サブイメージスタイル指定
+#sub_image img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sub_text {
+  font-size: 20px;
+  text-align: center;
+  margin: 50px;
+}
+
+// サービス紹介部分スタイル指定
+#concept {
+  font-size: 25px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+ 
+#concept_logo {
+	margin-bottom: -10px;
+}
+ 
+// #concept h2 {
+// 	margin-right: 25px;
+// }
+
+// 新規登録してTrainingMemoを始める
+.user_nav {
+  font-size: 30px;
+  margin-bottom: 10px;
+  padding: 20px 0;
+}
+
+footer {
+	background-color: #C20D23;
+	color: #fff;
+	text-align: center;
 }

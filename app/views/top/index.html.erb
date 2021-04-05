@@ -1,2 +1,61 @@
-<h1 class="service-title">ここはトップページです</h1>
-<h2>サービス紹介が入ります</h2>
+<main>
+<!-- メインイメージエリア -->
+<section id="main_image">
+		<nav>
+			<%# <div class="header"> %>
+				<ul>
+					<li><a href="#">トップ</a></li>
+					<li><a href="#concept">サービス紹介</a></li>
+					<li><a href="#start">さあ、始めましょう</a></li>
+				</ul>
+			</div>
+		</nav>
+</section>
+
+<div class="main_text">
+<img src="/assets/main_image.jpg">
+  <h2>筋トレをしていて、こんなことありませんか?</h2>
+   </div>
+
+  <div class="appeal_box">
+    <li class="appeal">痩せたいけどなかなか体重が落ちない</li>
+    <li class="appeal">１週間前にどんなトレーニングをしたか全く覚えていない</li>
+    <li class="appeal">トレーニングで自分の成長を実感できていない</li>
+    <li class="appeal">最初はやる気があったけどだんだんとやる気がなくなってきている</li>
+  </div>
+
+</section>
+
+<section id="sub_image">
+<div class="sub_text">
+<img src="/assets/sub_image.jpg">
+  <p>がむしゃらにトレーニングをしても成果はついてきません・・・</p>
+  <p>成果を出すためには、<b>数値の記録・そして毎日の確認が必要</b>です。</p>
+   </div>
+</section>
+ 
+<!-- サービス紹介エリア -->
+<section id="concept">
+  <div class="container">
+   <img id="concept_logo" src="/assets/concept_image.jpg">
+    <h2>~サービス紹介~</h2>
+      <%# <img id="concept_icon" src="images/concept_image2.png"> %>
+        <p><b>TrainingMemoはシンプルで使いやすい筋トレ・体成分管理ツールです！</b></p>
+        <p>TrainingMemoで記録して、効率よくトレーニングしましょう！</p>
+	</div>
+</section>
+ 
+<!-- TrainingMemoを始めるエリア -->
+<section id="start">
+<div class="container">
+	<h2>~TrainingMemoを始めよう！~</h2>
+	  <img id="start_logo" src="/assets/start_image.jpg">
+      <div class="user_nav">
+        <% if user_signed_in? %>
+           <%= link_to "マイページへ進む", training_records_path, method: :get %>
+        <% else %>
+            <%= link_to "新規登録してTrainingMemoを始める", new_user_registration_path %>
+      </div>
+        <% end %>
+</section>
+</main>
