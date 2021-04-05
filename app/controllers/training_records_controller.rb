@@ -1,5 +1,5 @@
 class TrainingRecordsController < ApplicationController
-before_action :set_training_record, only: [:destroy, :edit, :update]
+  before_action :set_training_record, only: [:destroy, :edit, :update]
 
   def index
     @training_records = TrainingRecord.all
@@ -16,7 +16,7 @@ before_action :set_training_record, only: [:destroy, :edit, :update]
   def destroy
     @training_record.destroy
   end
- 
+
   def edit
   end
 

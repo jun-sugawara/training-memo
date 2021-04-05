@@ -1,6 +1,6 @@
 class BodyRecordsController < ApplicationController
   before_action :set_body_record, only: [:destroy, :edit, :update]
-  
+
   def index
     @body_records = BodyRecord.all
   end
@@ -16,7 +16,7 @@ class BodyRecordsController < ApplicationController
   def destroy
     @body_record.destroy
   end
- 
+
   def edit
   end
 

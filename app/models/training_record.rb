@@ -1,5 +1,5 @@
 class TrainingRecord < ApplicationRecord
-  #アソシエーション記述
+  # アソシエーション記述
 
   with_options presence: true do
     validates :date
@@ -8,5 +8,4 @@ class TrainingRecord < ApplicationRecord
     validates :reps
     validates :set
   end
-
 end
