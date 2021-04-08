@@ -27,40 +27,41 @@ body {
 header {
   background-color: #efefef;
 }
+.header_left {
+  float: left;
+}
+
 // サイトタイトル
 .site_title {
   font-size: 40px;
-  margin-left: 20px;
+  margin-left: 25px;
   padding-top: 20px;
 }
 // 未ログイン時のログイン/新規登録表示
 .login_nav {
-  font-size: 30px;
-  margin-left: 30px;
+  font-size: 23px;
+  margin-left: 60px;
   padding-top: 10px;
 }
 
 // ログイン時のログアウト表示
 .sign_out_nav {
-  font-size: 30px;
-  margin-left: 80px;
+  font-size: 23px;
+  margin-left: 95px;
   padding-top: 10px;
 }
 
-#site_logo {
-	float: left;
-	width: 65%;
-}
 // お問い合わせはこちらから
 #site_reserve {
 	float: right;
-	// width: 35%;
+	font-size: 16px;
 	text-align: right;
   margin-right: 20px;
+  margin-top: 40px;
 }
 // 電話番号
 .site_tel {
-	font-size: 1.8em;
+	font-size: 1.5em;
 	color: #C20D23;
 }
 
@@ -162,4 +163,9 @@ footer {
 	background-color: #C20D23;
 	color: #fff;
 	text-align: center;
+}
+
+// ユーザー登録（sign_up）
+.field {
+  
 }
