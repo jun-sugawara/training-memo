@@ -2,15 +2,15 @@
   <div class="form">
     <div class=form-input>
       <%= form_with(model: @training_record, local: true) do |f| %>
-      <p> 日付を選択してください　</p>
+      <p> 日付を選択してください </p>
         <%= f.date_field :date %>
-      <p> 種目を選択してください　</p> 
+      <p> 種目を選択してください </p> 
         <%= f.text_field :training_event %>
-      <p> 重さを入力してください（例: 70.5）　</p>
+      <p> 重さを入力してください（例: 70.5） </p>
         <%= f.text_field :training_weight %>
-      <p> 回数を入力してください(例: 5)　</p>  
+      <p> 回数を入力してください(例: 5) </p>  
         <%= f.text_field :reps %>
-      <p> セット数を入力してください(例: 3)　</p> 
+      <p> セット数を入力してください(例: 3) </p> 
         <%= f.text_field :set %>
 
      <%= f.submit "保存" %>   

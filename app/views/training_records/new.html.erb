@@ -1,19 +1,23 @@
 <h1>トレーニング記録を入力</h1>
-  <div class="form">
-    <div class=form-input>
+  <form>
+    <div class="form-group col-md-6">
       <%= form_with(model: @training_record, local: true) do |f| %>
-      <p> 日付を選択してください　</p>
-        <%= f.date_field :date %>
-      <p> 種目を選択してください　</p> 
-        <%= f.text_field :training_event %>
-      <p> 重さを入力してください（例: 70.5）　</p>
-        <%= f.text_field :training_weight %>
-      <p> 回数を入力してください(例: 5)　</p>  
-        <%= f.text_field :reps %>
-      <p> セット数を入力してください(例: 3)　</p> 
-        <%= f.text_field :set %>
+        <label for="date">日付を選択してください</label>
+        <%= f.date_field :date, class: "form-control" %>
+      <label for="trining_event">種目を選択してください</label> 
+        <%= f.text_field :training_event, class: "form-control"%>
+      <label for="training_weight">重さを入力してください（例: 70.5）</label>
+        <%= f.text_field :training_weight, class: "form-control" %>
+      <label for="training_weight">回数を入力してください(例: 5) </label>
+        <%= f.text_field :reps, class: "form-control" %>
+      <label for="training_weight">セット数を入力してください(例: 3)</label>
+        <%= f.text_field :set, class: "form-control" %>
+        <div class="mb-3">
+          <%# <button type="submit" class="btn btn-primary">保存する</button> %>
+          <%= f.submit "保存" %>   
+        </div>
 
-    <p><%= f.submit "保存" %></p>
     </div>
       <% end %>
-  </div>
+      <%= link_to "マイページへ戻る", training_records_path %>
+  </form>
