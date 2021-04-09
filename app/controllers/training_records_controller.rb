@@ -10,18 +10,28 @@ class TrainingRecordsController < ApplicationController
   end
 
   def create
-    TrainingRecord.create(trainingrecord_params)
+    @training_record = TrainingRecord.new(trainingrecord_params)
+    if @training_record.save
+      redirect_to training_records_path, notice: "保存が完了しました"
+    else
+      flash.now[:alert] = "保存に失敗しました"
+      render :new
+    end
   end
 
   def destroy
-    @training_record.destroy
+    if @training_record.destroy
+      redirect_to training_records_path, notice: "削除が完了しました"
+    end
   end
 
   def edit
   end
 
   def update
-    @training_record.update(trainingrecord_params)
+    if @training_record.update(trainingrecord_params)
+      redirect_to training_records_path, notice: "編集が完了しました"
+    end
   end
 
   private
