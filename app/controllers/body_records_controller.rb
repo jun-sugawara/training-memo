@@ -10,18 +10,28 @@ class BodyRecordsController < ApplicationController
   end
 
   def create
-    BodyRecord.create(body_params)
+    @body_record = BodyRecord.new(body_params)
+    if @body_record.save
+      redirect_to training_records_path, notice: "保存が完了しました"
+    else
+      flash.now[:alert] = "保存に失敗しました"
+      render :new
+    end
   end
 
   def destroy
-    @body_record.destroy
+    if body_record.destroy
+      redirect_to training_records_path, notice: "削除が完了しました"
+    end
   end
 
   def edit
   end
 
   def update
-    @body_record.update(body_params)
+    if @body_record.update(body_params)
+      redirect_to training_records_path, notice: "編集が完了しました"
+    end
   end
 
   private
