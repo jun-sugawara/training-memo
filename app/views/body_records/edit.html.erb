@@ -1,17 +1,22 @@
-<h1>編集する</h1>
+  <h1>編集する</h1>
   <div class="form">
-    <div class=form-input>
+    <div class="form-group col-md-6">
       <%= form_with(model: @body_record, local: true) do |f| %>
-      <p>日付を選択してください</p>
-        <%= f.date_field :date %>
-      <p>体重を入力してください（例: 60.2）</p>
-        <%= f.text_field :body_weight %>
-      <p>体脂肪を入力してください（例: 18.6）</p>
-        <%= f.text_field :fat %>
-      <p>体調を選択してください</p>
-        <%= f.text_field :todays_condition %>
 
-     <p><%= f.submit "保存" %></p>
+      <%= render 'shared/error_messages', model: f.object %>
+      
+      <label for="date">日付を選択してください</label>
+        <%= f.date_field :date, class: "form-control" %>
+      <label for="body_weight">体重を入力してください（例: 60.2）</label> 
+        <%= f.text_field :body_weight, class: "form-control"%>
+      <label for="fat">体脂肪を入力してください（例: 18.6）</label>
+        <%= f.text_field :fat, class: "form-control" %>
+      <label for="todays_condition">体調を選択してください</label>
+        <%= f.text_field :todays_condition, class: "form-control" %>
+        <div class="mb-3"> 
+          <button type="submit" class="btn btn-primary">保存する</button>
+        </div>   
     </div>
       <% end %>
+      <%= link_to "マイページへ戻る", training_records_path %>
   </div>

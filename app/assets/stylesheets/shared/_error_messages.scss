@@ -1,0 +1,23 @@
+// フラッシュメッセージ表示
+.notification {
+  .notice {
+    background-color:#32CD32;
+    color: white;
+    text-align: center;
+  }
+}
+
+// エラーメッセージの表示
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2px;
+  padding-top: 10px;
+  background-color: red;
+}
+
+.error-message {
+  font-size: 17px;
+  list-style: circle;
+  color: white;
+} 

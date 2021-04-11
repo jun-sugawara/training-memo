@@ -1,5 +1,5 @@
 class TrainingRecordsController < ApplicationController
-before_action :set_training_record, only: [:destroy, :edit, :update]
+  before_action :set_training_record, only: [:destroy, :edit, :update]
 
   def index
     @training_records = TrainingRecord.all
@@ -10,18 +10,29 @@ before_action :set_training_record, only: [:destroy, :edit, :update]
   end
 
   def create
-    TrainingRecord.create(trainingrecord_params)
+    @training_record = TrainingRecord.new(trainingrecord_params)
+    if @training_record.save
+      redirect_to training_records_path, notice: "保存が完了しました"
+    else
+      render :new
+    end
   end
 
   def destroy
-    @training_record.destroy
+    if @training_record.destroy
+      redirect_to training_records_path, notice: "削除が完了しました"
+    end
   end
- 
+
   def edit
   end
 
   def update
-    @training_record.update(trainingrecord_params)
+    if @training_record.update(trainingrecord_params)
+      redirect_to training_records_path, notice: "編集が完了しました"
+    else
+      render :edit
+    end
   end
 
   private

@@ -4,27 +4,41 @@
     <title>TrainingMemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="/assets/application">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
    <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">TrainingMemo</a></h1>
+      <div class="header_left">
+        <h1 class="site_title"><a href="/">TrainingMemo</a></h1>
         <% if user_signed_in? %>
-          <div class="user_nav grid-6">
+          <div class="sign_out_nav">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "#" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "#" %>
+          <div class="login_nav">
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
           </div>
         <% end %>
       </div>
-    </header>
+
+			<div id="site_reserve">
+				<p>お問い合わせはこちらから</p>
+				<p class="site_tel">TEL:000-000-0000</p>
+			</div>
+      <div class="clearlist"></div>
+		</div>
+  </div>
+
+   </header>
     <%= yield %>
+	<footer>
+		<p>
+			Copyright(c) TrainingMemo.com
+		</p>
+	</footer>    
   </body>
 </html>
