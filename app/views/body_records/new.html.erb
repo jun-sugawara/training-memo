@@ -2,6 +2,9 @@
   <div class="form">
     <div class="form-group col-md-6">
       <%= form_with(model: @body_record, local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+      
       <label for="date">日付を選択してください</label>
         <%= f.date_field :date, class: "form-control" %>
       <label for="body_weight">体重を入力してください（例: 60.2）</label> 

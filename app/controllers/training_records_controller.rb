@@ -14,7 +14,6 @@ class TrainingRecordsController < ApplicationController
     if @training_record.save
       redirect_to training_records_path, notice: "保存が完了しました"
     else
-      flash.now[:alert] = "保存に失敗しました"
       render :new
     end
   end
@@ -31,6 +30,8 @@ class TrainingRecordsController < ApplicationController
   def update
     if @training_record.update(trainingrecord_params)
       redirect_to training_records_path, notice: "編集が完了しました"
+    else
+      render :edit
     end
   end
 

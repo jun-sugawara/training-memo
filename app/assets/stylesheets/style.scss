@@ -1,4 +1,4 @@
-/* ユニバーサルセレクタで余白リセット */
+// 余白リセット 
 * {
 	margin: 0;
 	padding: 0;
@@ -8,7 +8,7 @@ body {
 	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
  
-/* サイト共通コンテナ */
+// サイト共通コンテナ 
 .container {
   max-width: 1000px;
 	margin: 0 auto;
@@ -16,14 +16,14 @@ body {
   text-align: center;
 }
 
-/* float解除用 */
+// float解除用 
 .clearlist {
   content: "";
   display: block;
   clear: both;
 }
  
-/* ヘッダー部スタイル設定 */
+// ヘッダー部スタイル設定 
 header {
   background-color: #efefef;
 }

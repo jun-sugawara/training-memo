@@ -2,6 +2,9 @@
   <div class="form">
     <div class="form-group col-md-6">
       <%= form_with(model: @training_record, local: true) do |f| %>
+        
+        <%= render 'shared/error_messages', model: f.object %>
+        
       <label for="date">日付を選択してください</label>
         <%= f.date_field :date, class: "form-control" %>
       <label for="trining_event">種目を選択してください</label> 
