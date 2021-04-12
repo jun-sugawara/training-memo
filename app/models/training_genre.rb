@@ -1,5 +1,5 @@
 class TrainingGenre < ApplicationRecord
-    # アソシエーション記述
+    belongs_to :training_record
 
     with_options presence: true do
       validates :part

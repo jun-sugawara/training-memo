@@ -15,6 +15,7 @@
         <h1 class="site_title"><a href="/">TrainingMemo</a></h1>
         <% if user_signed_in? %>
           <div class="sign_out_nav">
+            <%= link_to current_user.nickname, training_records_path, class: "user-nickname" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         <% else %>

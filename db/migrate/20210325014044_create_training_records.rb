@@ -6,7 +6,7 @@ class CreateTrainingRecords < ActiveRecord::Migration[6.0]
       t.integer    :training_weight, null: false
       t.integer    :reps,            null: false
       t.integer    :set,             null: false 
-      # t.references :user             foreign_key: true
+      t.references :user,            foreign_key: true
       t.timestamps
     end
   end

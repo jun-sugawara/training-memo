@@ -1,5 +1,5 @@
 class BodyRecord < ApplicationRecord
-  # アソシエーション記述
+  belongs_to :user, optional: true
 
   with_options presence: true do
     validates :date
