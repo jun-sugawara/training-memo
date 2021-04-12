@@ -5,7 +5,7 @@
 }
 
 body {
-	font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	font-family: "ヒラギノ明朝 ProN W3";
 }
  
 // サイト共通コンテナ 
@@ -100,14 +100,17 @@ nav a:hover {
 
 // 「筋トレしていてこんなことありませんか？」スタイル指定
 #main_image img {
-	width: 100%;
+	width: 80%;
   margin-bottom: 20px;
 }
 
-.main_text {
-  font-size: 30px;
+.main_appeal {
   text-align: center;
   margin: 50px 50px 20px 50px;
+}
+
+.main_question {
+  font-size: 1.8em;
 }
 
 // 「悩み」部分スタイル指定
@@ -127,7 +130,7 @@ nav a:hover {
 
 // サブイメージスタイル指定
 #sub_image img {
-  width: 100%;
+  width: 80%;
   margin-bottom: 20px;
 }
 
@@ -139,15 +142,19 @@ nav a:hover {
 
 // サービス紹介部分スタイル指定
 #concept {
-  font-size: 25px;
+  font-size: 1.3em;
 	text-align: center;
 	margin-bottom: 40px;
 }
  
 #concept_logo {
 	margin-bottom: 5px;
+  width: 40%;
 }
- 
+
+#start_logo {
+  width: 80%;
+}
 // #concept h2 {
 // 	margin-right: 25px;
 // }
