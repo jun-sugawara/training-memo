@@ -29,6 +29,7 @@
 ### Association
 
 - belongs_to :user
+- has_many :training_genres
 
 ## Body_recordsテーブル
 
@@ -43,3 +44,14 @@
 ### Association
 
 - belongs_to :user
+
+## Training_genresテーブル
+
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| part             | string     | null: false       |
+| event            | string     | null: false       |
+
+### Association
+
+- belongs_to :training_record

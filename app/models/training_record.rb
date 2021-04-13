@@ -1,5 +1,6 @@
 class TrainingRecord < ApplicationRecord
-  # アソシエーション記述
+  belongs_to :user, optional: true
+  has_many :training_genres
 
   with_options presence: true do
     validates :date

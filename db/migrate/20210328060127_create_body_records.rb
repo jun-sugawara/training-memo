@@ -5,7 +5,7 @@ class CreateBodyRecords < ActiveRecord::Migration[6.0]
       t.integer :body_weight,     null: false
       t.integer :fat,             null: false
       t.integer :todays_condition
-      # t.references :user          foreign_key: true
+      t.references :user,         foreign_key: true
       t.timestamps
     end
   end

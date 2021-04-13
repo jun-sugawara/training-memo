@@ -15,6 +15,7 @@
         <h1 class="site_title"><a href="/">TrainingMemo</a></h1>
         <% if user_signed_in? %>
           <div class="sign_out_nav">
+            <%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         <% else %>
@@ -29,7 +30,8 @@
 				<p>お問い合わせはこちらから</p>
 				<p class="site_tel">TEL:000-000-0000</p>
 			</div>
-      <div class="clearlist"></div>
+      <div class="clear_list">
+      </div>
 		</div>
   </div>
 

@@ -1,3 +1,4 @@
+<%= render 'layouts/notifications' %>
 <main>
 <!-- メインイメージエリア -->
 <section id="main_image">
@@ -51,7 +52,7 @@
 	  <img id="start_logo" src="/assets/start_image.jpg">
       <div class="user_nav">
         <% if user_signed_in? %>
-           <%= link_to "マイページへ進む", training_records_path, method: :get %>
+           <%= link_to "マイページへ進む", user_path(current_user.id), method: :get %>
         <% else %>
             <%= link_to "新規登録してTrainingMemoを始める", new_user_registration_path %>
       </div>

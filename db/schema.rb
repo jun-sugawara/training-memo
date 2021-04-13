@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_001015) do
+ActiveRecord::Schema.define(version: 2021_04_12_042410) do
 
   create_table "body_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "body_weight", null: false
     t.integer "fat", null: false
     t.integer "todays_condition"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_body_records_on_user_id"
+  end
+
+  create_table "training_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "part", null: false
+    t.string "event", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,8 +36,10 @@ ActiveRecord::Schema.define(version: 2021_03_30_001015) do
     t.integer "training_weight", null: false
     t.integer "reps", null: false
     t.integer "set", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_training_records_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,4 +57,6 @@ ActiveRecord::Schema.define(version: 2021_03_30_001015) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "body_records", "users"
+  add_foreign_key "training_records", "users"
 end
