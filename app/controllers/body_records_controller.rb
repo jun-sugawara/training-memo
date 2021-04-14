@@ -38,7 +38,7 @@ class BodyRecordsController < ApplicationController
   private
 
   def body_params
-    params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition)
+    params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition).merge(user_id: current_user.id)
   end
 
   def set_body_record

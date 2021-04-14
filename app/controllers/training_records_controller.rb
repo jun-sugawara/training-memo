@@ -38,7 +38,7 @@ class TrainingRecordsController < ApplicationController
   private
 
   def trainingrecord_params
-    params.require(:training_record).permit(:date, :training_event, :training_weight, :reps, :set)
+    params.require(:training_record).permit(:date, :training_event, :training_weight, :reps, :set).merge(user_id: current_user.id)
   end
 
   def set_training_record
