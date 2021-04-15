@@ -12,7 +12,7 @@ class TrainingRecordsController < ApplicationController
   def create
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.save
-      redirect_to training_records_path, notice: "保存が完了しました"
+      redirect_to user_path(current_user.id), notice: "保存が完了しました"
     else
       render :new
     end

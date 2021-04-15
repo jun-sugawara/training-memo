@@ -12,7 +12,7 @@ class BodyRecordsController < ApplicationController
   def create
     @body_record = BodyRecord.new(body_params)
     if @body_record.save
-      redirect_to training_records_path, notice: "保存が完了しました"
+      redirect_to user_path(current_user.id), notice: "保存が完了しました"
     else
       render :new
     end
