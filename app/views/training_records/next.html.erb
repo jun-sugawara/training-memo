@@ -1,0 +1,25 @@
+<h1>重さ・回数・セット数を入力してください</h1>
+  <div class="form">
+    <div class="form-group col-md-6">
+      <%= form_with(model: @training_record, local: true) do |f| %>
+        
+        <%= render 'shared/error_messages', model: f.object %>
+
+      <%# <label for="date">日付を選択してください</label> %>
+        <%= f.date_field :date, class: "form-control", type: :hidden  %>
+      <%# <label for="trining_event">種目を選択してください</label>  %>
+        <%= f.text_field :training_event, class: "form-control", type: :hidden  %>
+      <label for="training_weight">重さを入力してください（例: 70.5）</label>
+        <%= f.text_field :training_weight, class: "form-control" %>
+      <label for="training_weight">回数を入力してください(例: 5) </label>
+        <%= f.text_field :reps, class: "form-control" %>
+      <label for="training_weight">セット数を入力してください(例: 3)</label>
+        <%= f.text_field :set, class: "form-control" %>
+        <div class="mb-3"> 
+          <button type="submit" class="btn btn-primary">保存する</button>
+        </div>   
+    </div>
+      <% end %>
+      <%= link_to "前のページに戻る",  new_training_record_path  %>
+      <%= link_to "マイページへ戻る", user_path(current_user.id) %>
+  </div>
