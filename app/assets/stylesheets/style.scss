@@ -172,20 +172,36 @@ footer {
 	text-align: center;
 }
 
-
 // ユーザー登録（sign_up）
 .username {
   font-size: 30px;
   text-align: center;
 }
 
+//トレーニング保存・体組成保存・データを見るテキスト
 .select-action {
   font-size: 25px;
   text-align: center;
 }
 
+// トレーニング種目・重さ選択
 .input-nav {
   font-size: 30px;
   text-align: center;
   margin: 10px;
+}
+
+// ログイン・新規登録
+.form-heading {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.devise-form {
+  font-size: 20px;
+  margin: 4px;
+}
+
+.actions {
+  padding-bottom: 20px;
 }
