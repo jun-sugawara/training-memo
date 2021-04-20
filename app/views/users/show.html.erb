@@ -1,5 +1,10 @@
+<%= render 'layouts/notifications' %>
+<div class="username">
 <%= @nickname %><p>さんのページ</p>
-<h4>今週トレーニングした日数</h4>
-<p><%= link_to "トレーニングを入力する",  new_training_record_path, class: "#" %></p>
-<%= link_to "体組成を入力する", new_body_record_path, class: "#" %>
-
+</div>
+<%# <h4>今週トレーニングした日数</h4> %>
+<div class="select-action">
+  <p><%= link_to "トレーニングを記録する",  new_training_record_path, class: "bg-info text-white" %></p>
+  <p><%= link_to "体組成を記録する", new_body_record_path, class: "bg-info text-white" %></p>
+  <p><%= link_to "データを見る", "#", class: "bg-info text-white" %></p>
+</div>

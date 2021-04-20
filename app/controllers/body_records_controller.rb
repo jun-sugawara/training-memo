@@ -12,7 +12,7 @@ class BodyRecordsController < ApplicationController
   def create
     @body_record = BodyRecord.new(body_params)
     if @body_record.save
-      redirect_to training_records_path, notice: "保存が完了しました"
+      redirect_to user_path(current_user.id), notice: "保存が完了しました"
     else
       render :new
     end
@@ -38,7 +38,7 @@ class BodyRecordsController < ApplicationController
   private
 
   def body_params
-    params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition)
+    params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition).merge(user_id: current_user.id)
   end
 
   def set_body_record
