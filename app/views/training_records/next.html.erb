@@ -1,4 +1,4 @@
-<h1>重さ・回数・セット数を入力してください</h1>
+<h1 class="input-nav">重さ・回数・セット数を入力してください</h1>
   <div class="form">
     <div class="form-group col-md-6">
       <%= form_with(model: @training_record, local: true) do |f| %>
@@ -20,6 +20,6 @@
         </div>   
     </div>
       <% end %>
-      <%= link_to "前のページに戻る",  new_training_record_path  %>
+      <%= link_to "前のページに戻る", new_training_record_path  %>
       <%= link_to "マイページへ戻る", user_path(current_user.id) %>
   </div>

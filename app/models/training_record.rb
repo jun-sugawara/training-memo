@@ -10,7 +10,7 @@ class TrainingRecord < ApplicationRecord
     # validates :set
   end
 
-  with_options on: :confirm do
+  with_options on: :next do
     validates_presence_of :training_weight
     validates_presence_of :reps
     validates_presence_of :set
