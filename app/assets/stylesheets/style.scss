@@ -172,11 +172,7 @@ footer {
 	text-align: center;
 }
 
-// ユーザー登録（sign_up）
-.username {
-  font-size: 30px;
-  text-align: center;
-}
+
 
 //トレーニング保存・体組成保存・データを見るテキスト
 .select-action {
@@ -209,8 +205,23 @@ footer {
 .btn-info {
   margin-bottom: 20px;
 }
-
+// 入力フォームの幅
 .form-input {
   width: 40%;
 }
 
+// マイページのユーザーネーム）
+.username {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+// マイページのイメージ画像
+.mypage-box {
+  padding-bottom: 20px;
+  background-image: url(mypage-image1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
