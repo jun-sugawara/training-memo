@@ -191,17 +191,26 @@ footer {
   margin: 10px;
 }
 
-// ログイン・新規登録
+// ログイン・新規登録の文字
 .form-heading {
   text-align: center;
   margin: 10px 0 10px 0;
 }
-
+// 各入力フォームのテキスト
 .devise-form {
   font-size: 20px;
   margin: 4px;
 }
-
+// ログインする/新規登録ボタン
 .actions {
   padding-bottom: 20px;
 }
+// ログインページ/新規登録ページ遷移ボタン
+.btn-info {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 40%;
+}
+
