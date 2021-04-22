@@ -33,7 +33,7 @@
 
   <div class="form-group">
     <%= f.label :gender, "性別", class: "devise-form" %><br />
-    <%= f.text_field :gender, autofocus: true, autocomplete: "gender", placeholder: "選択してください", class: "form-input" %>
+    <%= f.select :gender, [["女性",1],["男性",2],["どちらでもない",3]], include_blank: "選択してください", class: "form-input" %>
   </div>
 
   <div class="actions">
