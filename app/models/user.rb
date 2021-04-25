@@ -10,8 +10,8 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'Include both letters and numbers' }
 
     with_options presence: true do
-      validates :nickname
-      validates :age
+      validates :nickname, length: {maximum: 10}
+      validates :age, numericality: true
       validates :gender
     end
 end
