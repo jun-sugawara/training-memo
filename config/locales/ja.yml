@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        age: 年齢
+        gender: 性別
+        
