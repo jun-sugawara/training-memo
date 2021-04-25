@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_042410) do
 
   create_table "body_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
-    t.integer "body_weight", null: false
-    t.integer "fat", null: false
+    t.float "body_weight", null: false
+    t.float "fat", null: false
     t.integer "todays_condition"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_042410) do
   create_table "training_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "training_event", null: false
-    t.integer "training_weight", null: false
+    t.float "training_weight", null: false
     t.integer "reps", null: false
     t.integer "set", null: false
     t.bigint "user_id"

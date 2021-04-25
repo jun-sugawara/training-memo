@@ -19,8 +19,8 @@ class BodyRecordsController < ApplicationController
   end
 
   def destroy
-    if body_record.destroy
-      redirect_to training_records_path, notice: "削除が完了しました"
+    if @body_record.destroy
+      redirect_to body_records_path, notice: "削除が完了しました"
     end
   end
 

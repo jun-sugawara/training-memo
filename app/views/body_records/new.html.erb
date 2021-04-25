@@ -1,22 +1,26 @@
-  <h1>体組成を入力</h1>
-  <div class="form">
-    <div class="form-group col-md-6">
+<h3 class="input-nav">体重・体脂肪を入力する</h3>
+  <div class="container">
+    <div class="form-group ">
       <%= form_with(model: @body_record, local: true) do |f| %>
-
       <%= render 'shared/error_messages', model: f.object %>
-      
-      <label for="date">日付を選択してください</label>
-        <%= f.date_field :date, class: "form-control" %>
-      <label for="body_weight">体重を入力してください（例: 60.2）</label> 
-        <%= f.text_field :body_weight, class: "form-control"%>
-      <label for="fat">体脂肪を入力してください（例: 18.6）</label>
-        <%= f.text_field :fat, class: "form-control" %>
-      <label for="todays_condition">体調を選択してください</label>
-        <%= f.text_field :todays_condition, class: "form-control" %>
+
+        <label for="date">日付を選択してください</label>
+          <p><%= f.date_field :date %></p>
+
+          <label for="body_weight">体重を入力してください </label>
+            <p><%= f.text_field :body_weight, class: "form-input", placeholder:"例:60.2", style: "text-align:center" %> kg</p>
+          <label for="fat">体脂肪率を入力してください</label>
+            <p><%= f.text_field :fat, class: "form-input", placeholder:"例:18.3", style: "text-align:center" %> ％</p>
+        <label for="todays_condition">体調を選択してください</label>
+          <p><%= f.select :todays_condition, [["最高!",1],["良し",2],["普通",3],["良くない・・",4]], include_blank: "選択してください", class: "form-control" %></p>
+        
         <div class="mb-3"> 
           <button type="submit" class="btn btn-primary">保存する</button>
-        </div>   
+        </div>         
     </div>
       <% end %>
-      <%= link_to "マイページへ戻る", training_records_path %>
+      
+      <div class="actions">
+        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
+      </div>
   </div>

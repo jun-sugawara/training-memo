@@ -19,5 +19,19 @@
 .error-message {
   font-size: 17px;
   list-style: circle;
+  text-align: left;
   color: white;
 } 
+
+// フラッシュメッセージの余白を消去
+.notice {
+  margin-bottom: 0px;
+}
+
+// ログインページのフラッシュメッセージ記入
+.login-flash-message {
+  text-align: center;
+  background-color: red;
+  color: white;
+  font-size: 17px;
+}

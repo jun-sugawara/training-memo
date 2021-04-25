@@ -31,6 +31,10 @@ header {
   float: left;
 }
 
+footer {
+  margin-top: 20px;
+}
+
 // サイトタイトル
 .site_title {
   font-size: 40px;
@@ -173,19 +177,56 @@ footer {
 }
 
 
-// ユーザー登録（sign_up）
-.username {
-  font-size: 30px;
-  text-align: center;
-}
 
+//トレーニング保存・体組成保存・データを見るテキスト
 .select-action {
   font-size: 25px;
   text-align: center;
 }
 
+// トレーニング種目・重さ・体重体脂肪選択
 .input-nav {
   font-size: 30px;
   text-align: center;
   margin: 10px;
 }
+
+// ログイン・新規登録の文字
+.form-heading {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+// 各入力フォームのテキスト
+.devise-form {
+  font-size: 20px;
+  margin: 4px;
+}
+// ログインする/新規登録ボタン
+.actions {
+  padding-bottom: 20px;
+}
+// ログインページ/新規登録ページ遷移ボタン
+.btn-info {
+  margin-bottom: 20px;
+}
+// 入力フォームの幅
+.form-input {
+  width: 40%;
+}
+
+// マイページのユーザーネーム）
+.username {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+// マイページのイメージ画像
+.my-page-box {
+  padding-bottom: 20px;
+  background-image: url(my-page-image1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
