@@ -80,7 +80,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Age is not a number"
       end
-      it '性別が空では登録ができない' do
+      it '性別が選択されていなければ登録ができない' do
         @user.gender = ''
         @user.valid?
         expect(@user.errors.full_messages).to include "Gender can't be blank"
