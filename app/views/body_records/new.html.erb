@@ -1,4 +1,4 @@
-<h3 class="form-heading">体重・体脂肪を入力する</h3>
+<h3 class="input-nav">体重・体脂肪を入力する</h3>
   <div class="container">
     <div class="form-group ">
       <%= form_with(model: @body_record, local: true) do |f| %>
@@ -21,6 +21,6 @@
       <% end %>
       
       <div class="actions">
-        <%= link_to "マイページへ戻る", training_records_path, class: "btn btn-success" %>
+        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
       </div>
   </div>
