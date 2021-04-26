@@ -1,7 +1,7 @@
 <h1 class="input-nav">重さ・回数・セット数を入力する</h1>
   <div class="container">
     <div class="form-group">
-      <%= form_with(model: @training_record, local: true) do |f| %>
+      <%= form_with(model: @training_record, url: training_records_path(@training_record), local: true) do |f| %>
         
         <%= render 'shared/error_messages', model: f.object %>
 

@@ -1,5 +1,6 @@
 class TrainingRecordsController < ApplicationController
   before_action :find_training_record, only: [:destroy, :edit, :update]
+  before_action :move_to_top
 
   def index
     @training_records = TrainingRecord.all
@@ -8,27 +9,24 @@ class TrainingRecordsController < ApplicationController
   def new
     @training_record = TrainingRecord.new
   end
-
-  def next
+  
+  def next   
     @training_record = TrainingRecord.new(trainingrecord_params)
     render :new if @training_record.invalid?
   end
-
+  
   # def confirm
   #   @training_record = TrainingRecord.new(trainingrecord_params)
   #   render :new and return if params[:back]
-  #   render :next if @training_record.invalid?(:confirm)
+  # render :next if @training_record.invalid?(:confirm)
   # end
-
-  def create
+  
+  def create  
     @training_record = TrainingRecord.new(trainingrecord_params)
-    render :next and return if params[:back]
-    if @training_record.save
+    if @training_record.invalid?(:next)
+       render :next 
+    else @training_record.save
     redirect_to user_path(current_user.id), notice: "保存が完了しました" 
-    # if @training_record.save
-    # redirect_to user_path(current_user.id), notice: "保存が完了しました"
-    # else
-    #   render :new
     end
   end
 
@@ -53,6 +51,7 @@ class TrainingRecordsController < ApplicationController
     end
   end
 
+
   private
 
   def trainingrecord_params
@@ -62,4 +61,11 @@ class TrainingRecordsController < ApplicationController
   def find_training_record
     @training_record = TrainingRecord.find(params[:id])
   end
+
+  def move_to_top
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
 end

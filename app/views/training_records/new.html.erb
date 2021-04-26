@@ -7,7 +7,7 @@
       <label for="date">日付を選択してください</label>
         <p><%= f.date_field :date %></p>
       <label for="trining_event">種目を選択してください</label> 
-       <p> <%= f.collection_select :training_event, TrainingGenre.all, :event, :event, include_blank:"選択してください", class: "form-control"%></p>
+       <p> <%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%></p>
       <%# <label for="training_weight">重さを入力してください（例: 70.5）</label> %>
         <%= f.text_field :training_weight, type: :hidden %>
       <%# <label for="training_weight">回数を入力してください(例: 5) </label> %>
