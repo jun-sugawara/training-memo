@@ -1,5 +1,6 @@
 class BodyRecordsController < ApplicationController
-  before_action :set_body_record, only: [:destroy, :edit, :update]
+  before_action :authenticate_user!
+  before_action :find_body_record, only: [:destroy, :edit, :update]
 
   def index
     @body_records = BodyRecord.all
@@ -41,7 +42,7 @@ class BodyRecordsController < ApplicationController
     params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition).merge(user_id: current_user.id)
   end
 
-  def set_body_record
+  def find_body_record
     @body_record = BodyRecord.find(params[:id])
   end
 end

@@ -1,6 +1,6 @@
 class TrainingRecordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_training_record, only: [:destroy, :edit, :update]
-  before_action :move_to_top
 
   def index
     @training_records = TrainingRecord.all
@@ -14,12 +14,6 @@ class TrainingRecordsController < ApplicationController
     @training_record = TrainingRecord.new(trainingrecord_params)
     render :new if @training_record.invalid?
   end
-  
-  # def confirm
-  #   @training_record = TrainingRecord.new(trainingrecord_params)
-  #   render :new and return if params[:back]
-  # render :next if @training_record.invalid?(:confirm)
-  # end
   
   def create  
     @training_record = TrainingRecord.new(trainingrecord_params)
@@ -60,12 +54,6 @@ class TrainingRecordsController < ApplicationController
 
   def find_training_record
     @training_record = TrainingRecord.find(params[:id])
-  end
-
-  def move_to_top
-    unless user_signed_in?
-      redirect_to root_path
-    end
   end
 
 end
