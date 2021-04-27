@@ -5,4 +5,14 @@ ja:
         nickname: ニックネーム
         age: 年齢
         gender: 性別
+      training_record:
+        date: 日付
+        training_event: 種目
+        training_weight: 重さ
+        reps: 回数
+        set: セット数
+      body_record:
+        date: 日付
+        body_weight: 体重
+        fat: 体脂肪率
         
