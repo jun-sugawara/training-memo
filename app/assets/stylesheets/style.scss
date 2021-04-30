@@ -230,6 +230,17 @@ footer {
   background-repeat: no-repeat;
 }
 
+.action-box {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.run-btn {
+  margin: 5px 8px;
+}
+
 
 .latest-text {
   text-align: center;
@@ -294,6 +305,7 @@ footer {
   justify-content: center;
 }
 
+// 非表示の際の表示
 .empty {
   display: flex;
   justify-content: center;
@@ -304,3 +316,4 @@ footer {
   background-color: red;
   font-size: 20px;
 }
+

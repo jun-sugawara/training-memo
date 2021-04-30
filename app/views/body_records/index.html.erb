@@ -1,9 +1,9 @@
 <%= render 'layouts/notifications' %>
 <h3 class="input-nav">体重・体脂肪分析</h1>
 
-<% unless @body_records.empty? %>
+<% unless @body_record.empty? %>
   <div class="next-page">
-    <%= link_to "推移をグラフで確認する", "#", class: "btn btn-info" %>
+    <%= link_to "推移をグラフで確認する", "#", class: "btn btn-success" %>
   </div>
     <p class="latest-text">最新の体重・体脂肪のデータ</p>
 <div class="item-box">
@@ -24,12 +24,10 @@
             <th class="latest-data">体脂肪率</th>
             <td class="latest-value"><%= latest_bodyrecord.fat %>%</td>
           </tr>
-          <%# 要修正ここから %>
           <tr>
             <th class="latest-data">体調</th>
-            <td class="latest-value"><%= latest_bodyrecord.fat %></td>
+            <td class="latest-value"><%= latest_bodyrecord.todays_condition %></td>
           </tr>
-          <%# 要修正ここまで %>
       </tbody>
     </table>
   </div>
@@ -43,28 +41,17 @@
       </div>
       <% end %>
       
-      <%= form_tag(body_records_path, method: :get) do %>
-        <p>見たい日付を選択してください<input type="date">
-        <input type="submit"></p>
-      <% end %>
+      <div class="action-box">
+        <%= form_tag(search_body_records_path, method: :post) do %>
+          <p>見たい日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">
+          <input type="submit" value="確認する", class="btn btn-success"></p>
+        <% end %>
+      </div>
+
+
 </div>
       <% else %>
         <div class="empty">
           <p>記録されたデータはありません</p>
         </div>
        <% end %>
-    
-
-    <% @body_records.each do |body_record| %>
-        <p>体重 <%= body_record.body_weight %>kg</p>
-        <p>日付: <%= body_record.date %></p>
-        <p>体重: <%= body_record.body_weight %>Kg</p>
-        <p>体脂肪率: <%= body_record.fat %>%</p>
-        <p>今日の体調: <%= body_record.todays_condition %></p>
-      <li>
-        <%= link_to "編集", edit_body_record_path(body_record.id), method: :get  %>
-      </li>
-      <li>
-        <%= link_to "削除", "/body_records/#{body_record.id}", method: :delete %>
-      </li>
-    <% end %>

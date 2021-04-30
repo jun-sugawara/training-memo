@@ -7,6 +7,18 @@ class BodyRecordsController < ApplicationController
     @body_record = BodyRecord.order(date: :desc).limit(1)
   end
 
+  def search
+    @search_records = BodyRecord.all
+    @body_record = BodyRecord.new(body_params)
+    # binding.pry
+    if @body_record.date.present?
+      @body_record = BodyRecord.where('date = ?', "#{@body_record.date}}")
+    else
+      @body_record = BodyRecord.none
+    end
+      render :index
+  end
+
   def new
     @body_record = BodyRecord.new
   end
