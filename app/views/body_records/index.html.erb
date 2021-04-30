@@ -1,35 +1,38 @@
 <%= render 'layouts/notifications' %>
 <h3 class="input-nav">体重・体脂肪分析</h1>
-<div class="next-page">
-  <%= link_to "推移をグラフで確認する", "#", class: "btn btn-info" %>
-</div>
-  <p class="latest-text">最新の体重・体脂肪のデータ</p>
-<%# 最新の体組成データ %>
+
+<% unless @body_records.empty? %>
+  <div class="next-page">
+    <%= link_to "推移をグラフで確認する", "#", class: "btn btn-info" %>
+  </div>
+    <p class="latest-text">最新の体重・体脂肪のデータ</p>
 <div class="item-box">
-  <table class="latest-body-data">
-    <tbody>
-      <% @body_record.each do |latest_bodyrecord| %>
-        <tr>
-          <th class="latest-data">日付</th>
-          <td class="latest-value"><%= latest_bodyrecord.date %></td>
-        </tr>
-        <tr>
-          <th class="latest-data">体重</th>
-          <td class="latest-value"><%= latest_bodyrecord.body_weight %>kg</td>
-        </tr>
-        <tr>
-          <th class="latest-data">体脂肪率</th>
-          <td class="latest-value"><%= latest_bodyrecord.fat %>%</td>
-        </tr>
-        <%# 要修正ここから %>
-        <tr>
-          <th class="latest-data">体調</th>
-          <td class="latest-value"><%= latest_bodyrecord.fat %></td>
-        </tr>
-        <%# 要修正上まで %>
-    </tbody>
-  </table>
-</div>
+  <%# 最新の体組成データ %>
+  <div class="latest-box">
+    <table class="latest-body-data">
+      <tbody>
+        <% @body_record.each do |latest_bodyrecord| %>
+          <tr>
+            <th class="latest-data">日付</th>
+            <td class="latest-value"><%= latest_bodyrecord.date %></td>
+          </tr>
+          <tr>
+            <th class="latest-data">体重</th>
+            <td class="latest-value"><%= latest_bodyrecord.body_weight %>kg</td>
+          </tr>
+          <tr>
+            <th class="latest-data">体脂肪率</th>
+            <td class="latest-value"><%= latest_bodyrecord.fat %>%</td>
+          </tr>
+          <%# 要修正ここから %>
+          <tr>
+            <th class="latest-data">体調</th>
+            <td class="latest-value"><%= latest_bodyrecord.fat %></td>
+          </tr>
+          <%# 要修正ここまで %>
+      </tbody>
+    </table>
+  </div>
       <div class="edit-delete-box">
         <li class="edit-box">
           <%= link_to "編集する", edit_body_record_path(latest_bodyrecord.id), method: :get, class: "btn btn-info" %>
@@ -44,6 +47,12 @@
         <p>見たい日付を選択してください<input type="date">
         <input type="submit"></p>
       <% end %>
+</div>
+      <% else %>
+        <div class="empty">
+          <p>記録されたデータはありません</p>
+        </div>
+       <% end %>
     
 
     <% @body_records.each do |body_record| %>
@@ -59,4 +68,3 @@
         <%= link_to "削除", "/body_records/#{body_record.id}", method: :delete %>
       </li>
     <% end %>
-  

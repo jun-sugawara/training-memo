@@ -4,7 +4,7 @@ class BodyRecordsController < ApplicationController
 
   def index
     @body_records = BodyRecord.all
-    @body_record = BodyRecord.order(updated_at: :desc).limit(1)
+    @body_record = BodyRecord.order(date: :desc).limit(1)
   end
 
   def new

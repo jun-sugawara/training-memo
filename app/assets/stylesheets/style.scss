@@ -244,7 +244,7 @@ footer {
 }
 
 // 体脂肪分析ページの最新データ表示
-.item-box {
+.latest-box {
   background-color: #FFF;
   width: 100vw;
   min-width: 80px;
@@ -278,13 +278,29 @@ footer {
   display: flex;
   list-style: none;
   justify-content: center;
-  // align-items: center;
+}
+.edit-box {
+  margin-right: 15px;
+}
   
-  .edit-box {
-    margin-right: 15px;
-  }
-  
-  .delete-box {
-    margin-left: 15px;
-  }
+.delete-box {
+  margin-left: 15px;
+}
+
+
+// 日付選択
+.select-date {
+  display: flex;
+  justify-content: center;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  width: auto;
+  padding-top: 15px;
+  background-color: red;
+  font-size: 20px;
 }
