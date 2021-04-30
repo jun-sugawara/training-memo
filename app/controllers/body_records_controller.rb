@@ -4,6 +4,7 @@ class BodyRecordsController < ApplicationController
 
   def index
     @body_records = BodyRecord.all
+    @body_record = BodyRecord.order(updated_at: :desc).limit(1)
   end
 
   def new
@@ -30,7 +31,7 @@ class BodyRecordsController < ApplicationController
 
   def update
     if @body_record.update(body_params)
-      redirect_to training_records_path, notice: "編集が完了しました"
+      redirect_to body_records_path, notice: "編集が完了しました"
     else
       render :edit
     end

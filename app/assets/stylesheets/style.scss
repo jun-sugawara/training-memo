@@ -230,3 +230,61 @@ footer {
   background-repeat: no-repeat;
 }
 
+
+.latest-text {
+  text-align: center;
+  font-size: 25px;
+  color: red;
+}
+
+// 体成分グラフページ・max重量ページ遷移ボタン
+.next-page {
+  display: flex;
+  justify-content: center;
+}
+
+// 体脂肪分析ページの最新データ表示
+.item-box {
+  background-color: #FFF;
+  width: 100vw;
+  min-width: 80px;
+  padding: 0 10vw;
+  display: flex;
+  align-items: center;
+}
+
+.latest-body-data {
+  width: 100%;
+}
+
+// 日付・体重・体脂肪率・体調表示
+.latest-data {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}
+
+// DBの最新のデータ表示
+.latest-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 16px;
+}
+
+.edit-delete-box {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  // align-items: center;
+  
+  .edit-box {
+    margin-right: 15px;
+  }
+  
+  .delete-box {
+    margin-left: 15px;
+  }
+}
