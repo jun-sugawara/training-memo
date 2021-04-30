@@ -5,9 +5,13 @@
   </div>
   <%# <h4>今週トレーニングした日数</h4> %>
   <div class="select-action">
-    <p><%= link_to "トレーニングを記録する", new_training_record_path, class: "btn bg-info text-white" %></p>
-    <p><%= link_to "体重・体脂肪を記録する", new_body_record_path, class: "btn bg-info text-white" %></p>
-    <p><%= link_to "トレーニングを分析する", training_records_path, class: "btn bg-info text-white" %></p>
-    <p><%= link_to "体重・体脂肪を分析する", body_records_path, class: "btn bg-info text-white" %></p>
+    <div class="action-box">
+      <p class="run-btn"><%= link_to "トレーニングを記録する", new_training_record_path, class: "btn bg-success text-white" %></p>
+      <p class="run-btn"><%= link_to "体重・体脂肪を記録する", new_body_record_path, class: "btn bg-warning" %></p>
+    </div>
+    <div class="action-box">
+      <p class="run-btn"><%= link_to "トレーニングを分析する", training_records_path, class: "btn bg-success text-white" %></p>
+      <p class="run-btn"><%= link_to "体重・体脂肪を分析する", body_records_path, class: "btn bg-warning" %></p>
+    </div>
   </div>
 </div>

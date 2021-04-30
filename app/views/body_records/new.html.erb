@@ -12,7 +12,7 @@
           <label for="fat">体脂肪率を入力してください</label>
             <p><%= f.text_field :fat, class: "form-input", placeholder:"例:18.3", style: "text-align:center" %> ％</p>
         <label for="todays_condition">体調を選択してください</label>
-          <p><%= f.select :todays_condition, [["最高!",1],["良し",2],["普通",3],["良くない・・",4]], include_blank: "選択してください", class: "form-control" %></p>
+          <p><%= f.select :todays_condition, [["最高!","最高"],["良い","良い"],["普通","普通"],["良くない・・","良くない・・"]], include_blank: "選択してください", class: "form-control" %></p>
         
         <div class="mb-3"> 
           <button type="submit" class="btn btn-primary">保存する</button>

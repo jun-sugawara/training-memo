@@ -1,7 +1,17 @@
 <%= render 'layouts/notifications' %>
-<h1>このページの使い道を検討中</h1>
-<%= link_to "トレーニングを入力する",  new_training_record_path, class: "#" %>
-<%= link_to "体組成を入力する", new_body_record_path, class: "#" %>
+<h3 class="input-nav">トレーニング分析</h1>
+
+  <div class="next-page">
+    <%= link_to "Max重量を確認する", "#", class: "btn btn-info" %>
+  </div>
+
+  <div class="select-date">
+  <%= form_tag(training_records_path, method: :get) do %>
+    <p>見たい日付を選択し、送信してください<input type="date">
+    <input type="submit"></p>
+  <% end %>
+  </div>
+
 
   <% @training_records.each do |training_record| %>
     <p>日付: <%= training_record.date %></p>
