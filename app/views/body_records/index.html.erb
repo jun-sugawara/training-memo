@@ -6,12 +6,12 @@
     <%= link_to "推移をグラフで確認する", "#", class: "btn btn-success" %>
   </div>
     <p class="latest-text">最新の体重・体脂肪のデータ</p>
-<div class="item-box">
-  <%# 最新の体組成データ %>
+    
+<div class="item-box">  
+<% @body_record.each do |latest_bodyrecord| %>
   <div class="latest-box">
     <table class="latest-body-data">
       <tbody>
-        <% @body_record.each do |latest_bodyrecord| %>
           <tr>
             <th class="latest-data">日付</th>
             <td class="latest-value"><%= latest_bodyrecord.date %></td>
@@ -47,7 +47,6 @@
           <input type="submit" value="確認する", class="btn btn-success"></p>
         <% end %>
       </div>
-
 
 </div>
       <% else %>

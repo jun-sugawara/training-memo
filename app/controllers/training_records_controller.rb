@@ -4,6 +4,19 @@ class TrainingRecordsController < ApplicationController
 
   def index
     @training_records = TrainingRecord.all
+    @training_record = TrainingRecord.order(date: :desc).limit(1)
+  end
+
+  def search
+    @training_records = TrainingRecord.all
+    @training_record = TrainingRecord.new(trainingrecord_params)
+    # binding.pry
+    if @training_record.date.present?
+      @training_record = TrainingRecord.where('date = ?', "#{@training_record.date}}")
+    else
+      @training_record = TrainingRecord.none
+    end
+      render :index
   end
 
   def new

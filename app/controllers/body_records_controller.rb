@@ -8,7 +8,7 @@ class BodyRecordsController < ApplicationController
   end
 
   def search
-    @search_records = BodyRecord.all
+    @body_records = BodyRecord.all
     @body_record = BodyRecord.new(body_params)
     # binding.pry
     if @body_record.date.present?
