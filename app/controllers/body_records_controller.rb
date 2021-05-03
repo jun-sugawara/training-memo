@@ -10,7 +10,6 @@ class BodyRecordsController < ApplicationController
   def search
     @body_records = BodyRecord.all
     @body_record = BodyRecord.new(body_params)
-    # binding.pry
     if @body_record.date.present?
       @body_record = BodyRecord.where('date = ?', "#{@body_record.date}}")
     else

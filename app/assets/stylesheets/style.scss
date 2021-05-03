@@ -305,6 +305,13 @@ footer {
   justify-content: center;
 }
 
+// 日付選択(失敗時)
+.select-date-empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 // 非表示の際の表示
 .empty {
   display: flex;
