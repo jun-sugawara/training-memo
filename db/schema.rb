@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_042410) do
     t.date "date", null: false
     t.float "body_weight", null: false
     t.float "fat", null: false
-    t.integer "todays_condition"
+    t.string "todays_condition"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

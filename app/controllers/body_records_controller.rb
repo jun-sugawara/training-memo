@@ -4,6 +4,18 @@ class BodyRecordsController < ApplicationController
 
   def index
     @body_records = BodyRecord.all
+    @body_record = BodyRecord.order(date: :desc).limit(1)
+  end
+
+  def search
+    @body_records = BodyRecord.all
+    @body_record = BodyRecord.new(body_params)
+    if @body_record.date.present?
+      @body_record = BodyRecord.where('date = ?', "#{@body_record.date}}")
+    else
+      @body_record = BodyRecord.none
+    end
+      render :index
   end
 
   def new
@@ -30,7 +42,7 @@ class BodyRecordsController < ApplicationController
 
   def update
     if @body_record.update(body_params)
-      redirect_to training_records_path, notice: "編集が完了しました"
+      redirect_to body_records_path, notice: "編集が完了しました"
     else
       render :edit
     end

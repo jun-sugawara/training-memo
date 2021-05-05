@@ -1,0 +1,28 @@
+<h3 class="input-nav">Max重量を確認する</h3>
+
+  <div class="select-date">
+  <%= form_with model: @training_genre, url: max_training_records_path, method: :post, local: true do |f| %>
+    <p>種目を選択し、送信してください<%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%>
+    <%= f.submit "確認する", class:"btn btn-success"%></p>
+  <% end %>
+  </div>
+  <%# MAX重量 %>
+<% @training_record.each do |training_record| %>
+  <div class="max-box">
+    <table class="max-body-data">
+      <tbody>
+          <tr>
+            <th class="max-data">選択された種目</th>
+            <th class="max-data">MAX重量</th>
+            <th class="max-data">達成した日付</th>
+          </tr>
+          <tr>
+            <td class="max-value"><%= training_record.training_event %></td>
+            <td class="max-value"><%= training_record.training_weight %>kg</td>
+            <td class="max-value"><%= training_record.date %></td>
+          </tr>
+      </tbody>
+    </table>
+
+      <% end %>
+</div>

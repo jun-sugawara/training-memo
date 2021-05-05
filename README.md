@@ -20,7 +20,7 @@
 | --------------- | ---------- | ----------------- |
 | date            | date       | null: false       |
 | training_event  | integer    | null: false       |
-| training_weight | integer    | null: false       |
+| training_weight | float      | null: false       |
 | reps            | integer    | null: false       |
 | set             | integer    | null: false       |
 | user            | references | foreign_key: true |
@@ -36,9 +36,9 @@
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- |
 | date             | date       | null: false       |
-| body_weight      | integer    | null: false       |
-| fat              | integer    | null: false       |
-| todays_condition | integer    |                   |
+| body_weight      | float      | null: false       |
+| fat              | float      | null: false       |
+| todays_condition | string     |                   |
 | user             | references | foreign_key: true |
 
 ### Association
