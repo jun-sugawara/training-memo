@@ -18,6 +18,13 @@ class TrainingRecordsController < ApplicationController
       render :index
   end
 
+  def max 
+    @training_records = TrainingRecord.all
+    @training_record = TrainingRecord.order(training_weight: :desc).limit(1)
+    # @training_genres = TrainingGenre.all
+    # @training_genre = TrainingGenre.find{params[:id]}
+  end
+
   def new
     @training_record = TrainingRecord.new
   end

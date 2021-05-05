@@ -324,3 +324,33 @@ footer {
   font-size: 20px;
 }
 
+// MAX重量
+.max-box {
+  background-color: #FFF;
+  width: 100vw;
+  min-width: 80px;
+  padding: 0 10vw;
+  display: flex;
+  align-items: center;
+}
+
+.max-body-data {
+  width: 100%;
+}
+
+
+.max-data {
+  width: 33%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}
+
+.max-value {
+  width: 33%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}

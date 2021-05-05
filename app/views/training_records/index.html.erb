@@ -3,7 +3,7 @@
 
 <% unless @training_record.empty? %>
   <div class="next-page">
-    <%= link_to "Max重量を確認する", "#", class: "btn btn-info" %>
+    <%= link_to "Max重量を確認する", max_training_records_path, method: :post, class: "btn btn-info" %>
   </div>
 
   <div class="select-date">
@@ -57,10 +57,10 @@
         <div class="empty">
          <p>記録されたデータはありません</p>
         </div>
-          <div class="select-date-empty">
-            <%= form_tag(search_training_records_path, method: :post) do %>
-              <p>見たい日付を選択し、送信してください<input type="date" name="training_record[date]" id="training_record_date">
-              <input type="submit" value="確認する", class="btn btn-success"></p>
-            <% end %>
-          </div>
+        <div class="select-date-empty">
+          <%= form_tag(search_training_records_path, method: :post) do %>
+            <p>見たい日付を選択し、送信してください<input type="date" name="training_record[date]" id="training_record_date">
+            <input type="submit" value="確認する", class="btn btn-success"></p>
+          <% end %>
+        </div>
       <% end %>

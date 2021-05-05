@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       post :next
       post :search
+      post :max
     end
   end
 end
