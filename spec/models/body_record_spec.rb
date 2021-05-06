@@ -88,8 +88,6 @@ RSpec.describe BodyRecord, type: :model do
         @body_record.valid?
         expect(@body_record.errors.full_messages).to include '体脂肪率は半角数字で入力してください'
       end     
-
-
     end
   end
 end

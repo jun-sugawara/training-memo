@@ -4,9 +4,9 @@
       <%= form_with(model: @training_record, url: next_training_records_path(@training_record), local: true) do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
 
-      <label for="date">日付を選択してください</label>
+      <label for="date">日付を選択してください<span class="indispensable">必須</span></label>
         <p><%= f.date_field :date %></p>
-      <label for="trining_event">種目を選択してください</label> 
+      <label for="trining_event">種目を選択してください<span class="indispensable">必須</span></label> 
        <p> <%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%></p>
       <%# <label for="training_weight">重さを入力してください（例: 70.5）</label> %>
         <%= f.text_field :training_weight, type: :hidden %>
