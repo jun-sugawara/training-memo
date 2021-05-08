@@ -102,6 +102,17 @@ nav a:hover {
 
 /* メイン部スタイル設定 */
 
+// 「必須」のアイコン
+.indispensable {
+  background: #ea352d;
+  margin-left: 4px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 // 「筋トレしていてこんなことありませんか？」スタイル指定
 #main_image img {
 	width: 80%;
