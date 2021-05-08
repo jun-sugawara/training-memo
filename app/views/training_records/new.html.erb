@@ -8,11 +8,8 @@
         <p><%= f.date_field :date %></p>
       <label for="trining_event">種目を選択してください<span class="indispensable">必須</span></label> 
        <p> <%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%></p>
-      <%# <label for="training_weight">重さを入力してください（例: 70.5）</label> %>
         <%= f.text_field :training_weight, type: :hidden %>
-      <%# <label for="training_weight">回数を入力してください(例: 5) </label> %>
         <%= f.text_field :reps, type: :hidden  %>
-      <%# <label for="training_weight">セット数を入力してください(例: 3)</label> %>
         <%= f.text_field :set, type: :hidden  %>
         <div class="mb-3"> 
           <button type="submit" class="btn btn-primary">次へ</button>
