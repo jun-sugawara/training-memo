@@ -1,5 +1,5 @@
 class BodyRecord < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
 
   with_options presence: true do
     validates :date

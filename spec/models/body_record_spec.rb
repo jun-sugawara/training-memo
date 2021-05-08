@@ -58,7 +58,7 @@ RSpec.describe BodyRecord, type: :model do
         @body_record.valid?
         expect(@body_record.errors.full_messages).to include '体脂肪率を入力してください'
       end
-      it '体脂肪率は角数字では保存ができない'do
+      it '体脂肪率は全角数字では保存ができない'do
         @body_record.fat = "２０．５"
         @body_record.valid?
         expect(@body_record.errors.full_messages).to include '体脂肪率は半角数字で入力してください'
