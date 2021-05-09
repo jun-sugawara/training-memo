@@ -3,26 +3,41 @@ class TrainingRecordsController < ApplicationController
   before_action :find_training_record, only: [:destroy, :edit, :update]
 
   def index
-    @training_records = TrainingRecord.all
-    @training_record = TrainingRecord.order(date: :desc).limit(1)
+    @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
+    @training_genre = TrainingGenre.all
   end
-
+  
   def search
-    @training_records = TrainingRecord.all
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.date.present?
-      @training_record = TrainingRecord.where('date = ?', "#{@training_record.date}}")
+      @training_record = TrainingRecord.where('date = ? AND user_id = ?', "#{@training_record.date}", current_user.id)
+      @training_genre = TrainingGenre.all
     else
       @training_record = TrainingRecord.none
     end
-      render :index
+    render :index
   end
-
+  
   def max 
-    @training_records = TrainingRecord.all
-    @training_record = TrainingRecord.order(training_weight: :desc).limit(1)
+    # binding.pry
+    # @training_records = TrainingRecord.all
+    @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(training_weight: :desc).limit(1)
+    @training_genre = TrainingGenre.all
+    # @training_record = TrainingRecord.new(trainingrecord_params)
+    # if @training_record.training_event.present?
+    #   @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', "#{@training_record.training_event}", current_user.id)
+    # end
     # @training_genres = TrainingGenre.all
     # @training_genre = TrainingGenre.find{params[:id]}
+  end
+
+  def max_search
+    @training_record = TrainingRecord.new(trainingrecord_params)
+    if @training_record.training_event.present?
+      @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', "#{@training_record.training_event}", current_user.id).order(training_weight: :desc).limit(1)
+      @training_genre = TrainingGenre.all
+    end
+    render :max
   end
 
   def new

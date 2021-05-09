@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post :next
       post :search
       post :max
+      post :max_search
     end
   end
 end

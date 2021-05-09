@@ -41,7 +41,42 @@
         </li>
       </div>
       <% end %>
-      
+
+  <% if @search_body_record != nil %>
+    <% @search_body_record.each do |search_bodyrecord| %>
+    <div class="latest-box">
+     <table class="latest-body-data">
+      <tbody>
+          <tr>
+            <th class="latest-data">日付</th>
+            <td class="latest-value"><%= search_bodyrecord.date %></td>
+          </tr>
+          <tr>
+            <th class="latest-data">体重</th>
+            <td class="latest-value"><%= search_bodyrecord.body_weight %>kg</td>
+          </tr>
+          <tr>
+            <th class="latest-data">体脂肪率</th>
+            <td class="latest-value"><%= search_bodyrecord.fat %>%</td>
+          </tr>
+          <tr>
+            <th class="latest-data">体調</th>
+            <td class="latest-value"><%= search_bodyrecord.todays_condition %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <div class="edit-delete-box">
+        <li class="edit-box">
+          <%= link_to "編集する", edit_body_record_path(search_bodyrecord.id), method: :get, class: "btn btn-info" %>
+        </li>
+        <li class="delete-box">
+          <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
+        </li>
+      </div>   
+    <% end %> 
+  <% end %>
+
       <div class="action-box">
         <%= form_tag(search_body_records_path, method: :post) do %>
           <p>見たい日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">

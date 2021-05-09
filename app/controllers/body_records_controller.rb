@@ -3,17 +3,16 @@ class BodyRecordsController < ApplicationController
   before_action :find_body_record, only: [:destroy, :edit, :update]
 
   def index
-    @body_records = BodyRecord.all
-    @body_record = BodyRecord.order(date: :desc).limit(1)
+    @body_record = BodyRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
   end
 
   def search
-    @body_records = BodyRecord.all
-    @body_record = BodyRecord.new(body_params)
-    if @body_record.date.present?
-      @body_record = BodyRecord.where('date = ?', "#{@body_record.date}}")
+    @body_record = BodyRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
+    @search_body_record = BodyRecord.new(body_params)
+    if @search_body_record.date.present?
+      @search_body_record = BodyRecord.where('date = ? AND user_id = ?', "#{@search_body_record.date}", current_user.id)
     else
-      @body_record = BodyRecord.none
+      @search_body_record = BodyRecord.none
     end
       render :index
   end
