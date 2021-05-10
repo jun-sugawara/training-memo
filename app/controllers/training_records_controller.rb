@@ -29,6 +29,8 @@ class TrainingRecordsController < ApplicationController
       @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', @training_record.training_event.to_s,
                                               current_user.id).order(training_weight: :desc).limit(1)
       @training_genre = TrainingGenre.includes(:training_record)
+    else
+      @training_record = TrainingRecord.none
     end
     render :max
   end
