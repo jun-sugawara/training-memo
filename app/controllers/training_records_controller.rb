@@ -4,14 +4,14 @@ class TrainingRecordsController < ApplicationController
 
   def index
     @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
-    @training_genre = TrainingGenre.all
+    @training_genre = TrainingGenre.includes(:training_record)
   end
   
   def search
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.date.present?
       @training_record = TrainingRecord.where('date = ? AND user_id = ?', "#{@training_record.date}", current_user.id)
-      @training_genre = TrainingGenre.all
+      @training_genre = TrainingGenre.includes(:training_record)
     else
       @training_record = TrainingRecord.none
     end
@@ -19,23 +19,15 @@ class TrainingRecordsController < ApplicationController
   end
   
   def max 
-    # binding.pry
-    # @training_records = TrainingRecord.all
     @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(training_weight: :desc).limit(1)
-    @training_genre = TrainingGenre.all
-    # @training_record = TrainingRecord.new(trainingrecord_params)
-    # if @training_record.training_event.present?
-    #   @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', "#{@training_record.training_event}", current_user.id)
-    # end
-    # @training_genres = TrainingGenre.all
-    # @training_genre = TrainingGenre.find{params[:id]}
+    @training_genre = TrainingGenre.includes(:training_record)
   end
 
   def max_search
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.training_event.present?
       @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', "#{@training_record.training_event}", current_user.id).order(training_weight: :desc).limit(1)
-      @training_genre = TrainingGenre.all
+      @training_genre = TrainingGenre.includes(:training_record)
     end
     render :max
   end
