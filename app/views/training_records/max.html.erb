@@ -6,27 +6,32 @@
     <%= f.submit "確認する", class:"btn btn-success"%></p>
   <% end %>
   </div>
+<% unless @training_record.empty? %>
   <%# MAX重量 %>
-<% @training_record.each do |training_record| %>
-  <div class="max-box">
-    <table class="max-body-data">
-      <tbody>
-          <tr>
-            <th class="max-data">選択された種目</th>
-            <th class="max-data">MAX重量</th>
-            <th class="max-data">達成した日付</th>
-          </tr>
-          <tr>
-          <% @training_genre.each do |training_genre|%>
-            <% if training_record.training_event == training_genre.id %>
-              <td class="max-value"><%= training_genre.event %></td>
+  <% @training_record.each do |training_record| %>
+    <div class="max-box">
+      <table class="max-body-data">
+        <tbody>
+            <tr>
+              <th class="max-data">選択された種目</th>
+              <th class="max-data">MAX重量</th>
+              <th class="max-data">達成した日付</th>
+            </tr>
+            <tr>
+            <% @training_genre.each do |training_genre|%>
+              <% if training_record.training_event == training_genre.id %>
+                <td class="max-value"><%= training_genre.event %></td>
+              <% end %>
             <% end %>
-          <% end %>
-              <td class="max-value"><%= training_record.training_weight %>kg</td>
-              <td class="max-value"><%= training_record.date %></td>
-          </tr>
-      </tbody>
-    </table>
-      
-      <% end %>
+                <td class="max-value"><%= training_record.training_weight %>kg</td>
+                <td class="max-value"><%= training_record.date %></td>
+            </tr>
+        </tbody>
+      </table>
+  <% end %>   
+<% else %>
+    <div class="empty">
+     <p>選択された種目のトレーニング履歴がありません</p>
+    </div>
+<% end %>
 </div>
