@@ -252,11 +252,18 @@ footer {
   margin: 5px 8px;
 }
 
-
+// 最新の体重・体脂肪データ
 .latest-text {
   text-align: center;
   font-size: 25px;
   color: red;
+}
+
+// 選択された日の体重・体脂肪データ
+.select-text {
+  text-align: center;
+  font-size:  25px;
+  color:  blue;
 }
 
 // 体成分グラフページ・max重量ページ遷移ボタン
