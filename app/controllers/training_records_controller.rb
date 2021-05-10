@@ -6,19 +6,19 @@ class TrainingRecordsController < ApplicationController
     @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
     @training_genre = TrainingGenre.includes(:training_record)
   end
-  
+
   def search
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.date.present?
-      @training_record = TrainingRecord.where('date = ? AND user_id = ?', "#{@training_record.date}", current_user.id)
+      @training_record = TrainingRecord.where('date = ? AND user_id = ?', @training_record.date.to_s, current_user.id)
       @training_genre = TrainingGenre.includes(:training_record)
     else
       @training_record = TrainingRecord.none
     end
     render :index
   end
-  
-  def max 
+
+  def max
     @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(training_weight: :desc).limit(1)
     @training_genre = TrainingGenre.includes(:training_record)
   end
@@ -26,7 +26,8 @@ class TrainingRecordsController < ApplicationController
   def max_search
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.training_event.present?
-      @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', "#{@training_record.training_event}", current_user.id).order(training_weight: :desc).limit(1)
+      @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', @training_record.training_event.to_s,
+                                              current_user.id).order(training_weight: :desc).limit(1)
       @training_genre = TrainingGenre.includes(:training_record)
     end
     render :max
@@ -35,18 +36,19 @@ class TrainingRecordsController < ApplicationController
   def new
     @training_record = TrainingRecord.new
   end
-  
-  def next   
+
+  def next
     @training_record = TrainingRecord.new(trainingrecord_params)
     render :new if @training_record.invalid?
   end
-  
-  def create  
+
+  def create
     @training_record = TrainingRecord.new(trainingrecord_params)
     if @training_record.invalid?(:next)
-       render :next 
-    else @training_record.save
-    redirect_to user_path(current_user.id), notice: "保存が完了しました" 
+      render :next
+    else
+      @training_record.save
+      redirect_to user_path(current_user.id), notice: '保存が完了しました'
     end
   end
 
@@ -55,9 +57,7 @@ class TrainingRecordsController < ApplicationController
   end
 
   def destroy
-    if @training_record.destroy
-      redirect_to training_records_path, notice: "削除が完了しました"
-    end
+    redirect_to training_records_path, notice: '削除が完了しました' if @training_record.destroy
   end
 
   def edit
@@ -65,12 +65,11 @@ class TrainingRecordsController < ApplicationController
 
   def update
     if @training_record.update(trainingrecord_params)
-      redirect_to training_records_path, notice: "編集が完了しました"
+      redirect_to training_records_path, notice: '編集が完了しました'
     else
       render :edit
     end
   end
-
 
   private
 
@@ -81,5 +80,4 @@ class TrainingRecordsController < ApplicationController
   def find_training_record
     @training_record = TrainingRecord.find(params[:id])
   end
-
 end
