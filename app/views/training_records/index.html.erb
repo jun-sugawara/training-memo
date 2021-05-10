@@ -15,7 +15,6 @@
 
 
 <div class="item-box">
-  <%# 筋トレデータ %>
 <% @training_record.each do |training_record| %>
   <div class="latest-box">
     <table class="latest-body-data">
@@ -25,8 +24,12 @@
             <td class="latest-value"><%= training_record.date %></td>
           </tr>
           <tr>
-            <th class="latest-data">種目</th>
-            <td class="latest-value"><%= training_record.training_event %></td>
+          <% @training_genre.each do |training_genre|%>
+            <% if training_record.training_event == training_genre.id %>
+              <th class="latest-data">種目</th>
+              <td class="latest-value"><%= training_genre.event %></td>
+            <% end %>
+          <% end %>
           </tr>
           <tr>
             <th class="latest-data">重さ</th>
@@ -55,7 +58,7 @@
 </div>
       <% else %>
         <div class="empty">
-         <p>記録されたデータはありません</p>
+         <p>選択された日のトレーニング履歴がありません</p>
         </div>
         <div class="select-date-empty">
           <%= form_tag(search_training_records_path, method: :post) do %>

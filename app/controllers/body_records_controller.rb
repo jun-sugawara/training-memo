@@ -3,19 +3,18 @@ class BodyRecordsController < ApplicationController
   before_action :find_body_record, only: [:destroy, :edit, :update]
 
   def index
-    @body_records = BodyRecord.all
-    @body_record = BodyRecord.order(date: :desc).limit(1)
+    @body_record = BodyRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
   end
 
   def search
-    @body_records = BodyRecord.all
-    @body_record = BodyRecord.new(body_params)
-    if @body_record.date.present?
-      @body_record = BodyRecord.where('date = ?', "#{@body_record.date}}")
-    else
-      @body_record = BodyRecord.none
-    end
-      render :index
+    @body_record = BodyRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
+    @search_body_record = BodyRecord.new(body_params)
+    @search_body_record = if @search_body_record.date.present?
+                            BodyRecord.where('date = ? AND user_id = ?', @search_body_record.date.to_s, current_user.id)
+                          else
+                            BodyRecord.none
+                          end
+    render :index
   end
 
   def new
@@ -25,16 +24,14 @@ class BodyRecordsController < ApplicationController
   def create
     @body_record = BodyRecord.new(body_params)
     if @body_record.save
-      redirect_to user_path(current_user.id), notice: "保存が完了しました"
+      redirect_to user_path(current_user.id), notice: '保存が完了しました'
     else
       render :new
     end
   end
 
   def destroy
-    if @body_record.destroy
-      redirect_to body_records_path, notice: "削除が完了しました"
-    end
+    redirect_to body_records_path, notice: '削除が完了しました' if @body_record.destroy
   end
 
   def edit
@@ -42,7 +39,7 @@ class BodyRecordsController < ApplicationController
 
   def update
     if @body_record.update(body_params)
-      redirect_to body_records_path, notice: "編集が完了しました"
+      redirect_to body_records_path, notice: '編集が完了しました'
     else
       render :edit
     end

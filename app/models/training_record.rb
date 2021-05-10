@@ -5,8 +5,8 @@ class TrainingRecord < ApplicationRecord
   with_options presence: true do
     validates :date
     validates :training_event
-    validates :training_weight, on: :next, numericality: { with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
-    validates :reps, on: :next, numericality: { with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
+    validates :training_weight, on: :next, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
+    validates :reps, on: :next, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
     validates :set, on: :next
   end
 
