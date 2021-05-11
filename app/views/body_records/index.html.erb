@@ -3,7 +3,7 @@
 
 <% unless @body_record.empty? %>
   <div class="next-page">
-    <%= link_to "推移をグラフで確認する", "#", class: "btn btn-success" %>
+    <%= link_to "推移をグラフで確認する", graph_body_records_path, method: :post,  class: "btn btn-success" %>
   </div>
     <p class="latest-text">最新の体重・体脂肪データ</p>
 <div class="item-box">  

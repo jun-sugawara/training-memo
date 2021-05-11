@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :body_records do
     collection do
       post :search
+      post :graph
     end
   end
   resources :users

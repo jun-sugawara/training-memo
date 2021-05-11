@@ -45,6 +45,9 @@ class BodyRecordsController < ApplicationController
     end
   end
 
+  def graph
+  end
+
   private
 
   def body_params
