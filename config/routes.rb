@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     collection do
       post :search
       post :graph
+      post :month_graph
+      post :week_graph
     end
   end
   resources :users
