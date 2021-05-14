@@ -63,9 +63,12 @@ class TrainingRecordsController < ApplicationController
   end
 
   def edit
+    @training_genre = TrainingGenre.includes(:training_record)
   end
 
   def update
+    # binding.pry
+    @training_genre = TrainingGenre.includes(:training_record)
     if @training_record.update(trainingrecord_params)
       redirect_to training_records_path, notice: '編集が完了しました'
     else

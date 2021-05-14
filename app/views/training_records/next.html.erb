@@ -5,8 +5,8 @@
         
         <%= render 'shared/error_messages', model: f.object %>
 
-        <%= f.date_field :date, class: "form-control", type: :hidden  %>
-        <%= f.text_field :training_event, class: "form-control", type: :hidden  %>
+        <%= f.date_field :date, type: :hidden  %>
+        <%= f.text_field :training_event, type: :hidden  %>
 
       <label for="training_weight">重さを入力してください<span class="indispensable">必須</span></label>
         <p><%= f.text_field :training_weight, class: "form-input", placeholder:"(※半角数字で入力)  例:55", style: "text-align:center" %> kg</p>

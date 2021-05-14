@@ -52,10 +52,10 @@ class BodyRecordsController < ApplicationController
   def month_graph
     @month_graph = BodyRecord.new(body_params)
     @month_graph = if @month_graph.date.present?
-                      BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @month_graph.date, @month_graph.date >> 1, current_user.id  )
-                    else
-                      BodyRecord.none
-                    end
+                    BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @month_graph.date, @month_graph.date >> 1, current_user.id  )
+                   else
+                    BodyRecord.none
+                   end
     @weight_graph = []
     @fat_graph = []
     @month_graph.each do |s|
