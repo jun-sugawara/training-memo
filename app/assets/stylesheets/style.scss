@@ -113,67 +113,6 @@ nav a:hover {
   font-weight: bold;
 }
 
-// 「筋トレしていてこんなことありませんか？」スタイル指定
-#main_image img {
-	width: 80%;
-  margin-bottom: 20px;
-}
-
-.main_appeal {
-  text-align: center;
-  margin: 50px 50px 20px 50px;
-}
-
-.main_question {
-  font-size: 1.8em;
-}
-
-// 「悩み」部分スタイル指定
-.appeal {
-  position: relative;
-  left: 50%;
-  font-size: 20px;
-  margin-bottom: 7px;
-}
-
-.appeal_box {
-  position: relative;
-  float: right;
-  left: -50%;
-  margin-bottom: 20px;
-}
-
-// サブイメージスタイル指定
-#sub_image img {
-  width: 80%;
-  margin-bottom: 20px;
-}
-
-.sub_text {
-  font-size: 20px;
-  text-align: center;
-  margin: 50px;
-}
-
-// サービス紹介部分スタイル指定
-#concept {
-  font-size: 1.3em;
-	text-align: center;
-	margin-bottom: 40px;
-}
- 
-#concept_logo {
-	margin-bottom: 5px;
-  width: 40%;
-}
-
-#start_logo {
-  width: 80%;
-}
-// #concept h2 {
-// 	margin-right: 25px;
-// }
-
 // 新規登録してTrainingMemoを始める
 .user_nav {
   font-size: 30px;
@@ -187,14 +126,6 @@ footer {
 	text-align: center;
 }
 
-
-
-//トレーニング保存・体組成保存・データを見るテキスト
-.select-action {
-  font-size: 25px;
-  text-align: center;
-}
-
 // トレーニング種目・重さ・体重体脂肪選択
 .input-nav {
   font-size: 30px;
@@ -202,68 +133,15 @@ footer {
   margin: 10px;
 }
 
-// ログイン・新規登録の文字
-.form-heading {
-  text-align: center;
-  margin: 10px 0 10px 0;
-}
-// 各入力フォームのテキスト
-.devise-form {
-  font-size: 20px;
-  margin: 4px;
-}
-// ログインする/新規登録ボタン
-.actions {
-  padding-bottom: 20px;
-}
-// ログインページ/新規登録ページ遷移ボタン
-.btn-info {
-  margin-bottom: 20px;
-}
 // 入力フォームの幅
 .form-input {
   width: 40%;
 }
 
-// マイページのユーザーネーム）
-.username {
-  font-size: 30px;
-  text-align: center;
-  color: white;
-}
-
-// マイページのイメージ画像
-.my-page-box {
-  padding-bottom: 20px;
-  background-image: url(my-page-image1);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
+// 見たい日付を選択
 .action-box {
   display: flex;
   justify-content: center;
-}
-
-
-
-.run-btn {
-  margin: 5px 8px;
-}
-
-// 最新の体重・体脂肪データ
-.latest-text {
-  text-align: center;
-  font-size: 25px;
-  color: red;
-}
-
-// 選択された日の体重・体脂肪データ
-.select-text {
-  text-align: center;
-  font-size:  25px;
-  color:  blue;
 }
 
 // 体成分グラフページ・max重量ページ遷移ボタン
@@ -272,8 +150,8 @@ footer {
   justify-content: center;
 }
 
-// 体脂肪分析ページの最新データ表示
-.latest-box {
+//データ表示BOX
+.data-box {
   background-color: #FFF;
   width: 100vw;
   min-width: 80px;
@@ -282,12 +160,13 @@ footer {
   align-items: center;
 }
 
-.latest-body-data {
+// テーブル親
+.table-data-box {
   width: 100%;
 }
 
-// 日付・体重・体脂肪率・体調表示
-.latest-data {
+// テーブルのタイトル
+.table-data {
   width: 20%;
   background-color: #eee;
   border: 1px solid #dedede;
@@ -295,27 +174,30 @@ footer {
   text-align: center;
 }
 
-// DBの最新のデータ表示
-.latest-value {
+// テーブルの表示結果
+.table-value {
   width: 80%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 16px;
 }
 
+// 編集削除BOX親
 .edit-delete-box {
   display: flex;
   justify-content: center;
   list-style: none;
 }
+
+// 編集BOX
 .edit-box {
   margin-right: 15px;
 }
   
+// 削除BPX
 .delete-box {
   margin-left: 15px;
 }
-
 
 // 日付選択
 .select-date {
@@ -342,54 +224,7 @@ footer {
   font-size: 20px;
 }
 
-// MAX重量
-.max-box {
-  background-color: #FFF;
-  width: 100vw;
-  min-width: 80px;
-  padding: 0 10vw;
-  display: flex;
-  align-items: center;
-}
-
-.max-body-data {
-  width: 100%;
-}
-
-
-.max-data {
-  width: 33%;
-  background-color: #eee;
-  border: 1px solid #dedede;
-  font-size: 16px;
-  text-align: center;
-}
-
-.max-value {
-  width: 33%;
-  padding: 20px;
-  border: 1px solid #dedede;
-  font-size: 16px;
-  text-align: center;
-}
-.graph {
-  padding-left: 4%;
-  padding-right: 4%;
-  padding-top: 10px;
-}
-
-.month {
-  background-color: aquamarine;
-}
-.week {
-  background-color: darksalmon;
-}
-
-.graph-text {
-  font-size: 22px;
-  text-align: center;
-}
-
+// 編集時のタイトルテキスト
 .edit-text {
   font-size: 25px;
   font-weight: bold;

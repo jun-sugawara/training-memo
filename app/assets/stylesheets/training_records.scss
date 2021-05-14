@@ -1,3 +1,30 @@
-// Place all the styles related to the training_records controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// MAX重量
+.max-box {
+  background-color: #FFF;
+  width: 100vw;
+  min-width: 80px;
+  padding: 0 10vw;
+  display: flex;
+  align-items: center;
+}
+
+.max-body-data {
+  width: 100%;
+}
+
+
+.max-data {
+  width: 33%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}
+
+.max-value {
+  width: 33%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}

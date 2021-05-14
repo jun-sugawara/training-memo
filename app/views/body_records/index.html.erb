@@ -7,35 +7,35 @@
   </div>
     <p class="latest-text">最新の体重・体脂肪データ</p>
 <div class="item-box">  
-<% @body_record.each do |latest_bodyrecord| %>
-  <div class="latest-box">
-    <table class="latest-body-data">
+<% @body_record.each do |body_record| %>
+  <div class="data-box">
+    <table class="table-data-box">
       <tbody>
           <tr>
-            <th class="latest-data">日付</th>
-            <td class="latest-value"><%= latest_bodyrecord.date %></td>
+            <th class="table-data">日付</th>
+            <td class="table-value"><%= body_record.date %></td>
           </tr>
           <tr>
-            <th class="latest-data">体重</th>
-            <td class="latest-value"><%= latest_bodyrecord.body_weight %>kg</td>
+            <th class="table-data">体重</th>
+            <td class="table-value"><%= body_record.body_weight %>kg</td>
           </tr>
           <tr>
-            <th class="latest-data">体脂肪率</th>
-            <td class="latest-value"><%= latest_bodyrecord.fat %>%</td>
+            <th class="table-data">体脂肪率</th>
+            <td class="table-value"><%= body_record.fat %>%</td>
           </tr>
           <tr>
-            <th class="latest-data">体調</th>
-            <td class="latest-value"><%= latest_bodyrecord.todays_condition %></td>
+            <th class="table-data">体調</th>
+            <td class="table-value"><%= body_record.todays_condition %></td>
           </tr>
       </tbody>
     </table>
   </div>
     <div class="edit-delete-box">
       <li class="edit-box">
-        <%= link_to "編集する", edit_body_record_path(latest_bodyrecord.id), method: :get, class: "btn btn-info" %>
+        <%= link_to "編集する", edit_body_record_path(body_record.id), method: :get, class: "btn btn-info" %>
       </li>
       <li class="delete-box">
-        <%= link_to "削除する", "/body_records/#{latest_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
+        <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, class: "btn btn-danger" %>
       </li>
     </div>
 <% end %>
@@ -44,24 +44,24 @@
   <% unless @search_body_record.empty? %>
     <% @search_body_record.each do |search_bodyrecord| %>
     <p class="select-text">選択された日の体重・体脂肪データ</p>
-    <div class="latest-box">
-     <table class="latest-body-data">
+    <div class="data-box">
+     <table class="table-data-box">
       <tbody>
           <tr>
-            <th class="latest-data">日付</th>
-            <td class="latest-value"><%= search_bodyrecord.date %></td>
+            <th class="table-data">日付</th>
+            <td class="table-value"><%= search_bodyrecord.date %></td>
           </tr>
           <tr>
-            <th class="latest-data">体重</th>
-            <td class="latest-value"><%= search_bodyrecord.body_weight %>kg</td>
+            <th class="table-data">体重</th>
+            <td class="table-value"><%= search_bodyrecord.body_weight %>kg</td>
           </tr>
           <tr>
-            <th class="latest-data">体脂肪率</th>
-            <td class="latest-value"><%= search_bodyrecord.fat %>%</td>
+            <th class="table-data">体脂肪率</th>
+            <td class="table-value"><%= search_bodyrecord.fat %>%</td>
           </tr>
           <tr>
-            <th class="latest-data">体調</th>
-            <td class="latest-value"><%= search_bodyrecord.todays_condition %></td>
+            <th class="table-data">体調</th>
+            <td class="table-value"><%= search_bodyrecord.todays_condition %></td>
           </tr>
         </tbody>
       </table>

@@ -16,32 +16,32 @@
 
 <div class="item-box">
 <% @training_record.each do |training_record| %>
-  <div class="latest-box">
-    <table class="latest-body-data">
+  <div class="data-box">
+    <table class="table-data-box">
       <tbody>
           <tr>
-            <th class="latest-data">日付</th>
-            <td class="latest-value"><%= training_record.date %></td>
+            <th class="table-data">日付</th>
+            <td class="table-value"><%= training_record.date %></td>
           </tr>
           <tr>
           <% @training_genre.each do |training_genre|%>
             <% if training_record.training_event == training_genre.id %>
-              <th class="latest-data">種目</th>
-              <td class="latest-value"><%= training_genre.event %></td>
+              <th class="table-data">種目</th>
+              <td class="table-value"><%= training_genre.event %></td>
             <% end %>
           <% end %>
           </tr>
           <tr>
-            <th class="latest-data">重さ</th>
-            <td class="latest-value"><%= training_record.training_weight %>kg</td>
+            <th class="table-data">重さ</th>
+            <td class="table-value"><%= training_record.training_weight %>kg</td>
           </tr>
           <tr>
-            <th class="latest-data">回数</th>
-            <td class="latest-value"><%= training_record.reps %>回</td>
+            <th class="table-data">回数</th>
+            <td class="table-value"><%= training_record.reps %>回</td>
           </tr>
            <tr>
-            <th class="latest-data">セット数</th>
-            <td class="latest-value"><%= training_record.set %>セット</td>
+            <th class="table-data">セット数</th>
+            <td class="table-value"><%= training_record.set %>セット</td>
           </tr>
       </tbody>
     </table>
