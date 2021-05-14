@@ -1,6 +1,7 @@
 class BodyRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_body_record, only: [:destroy, :edit, :update]
+  before_action :move_to_top, only: :edit
 
   def index
     @body_record = BodyRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
@@ -93,4 +94,9 @@ class BodyRecordsController < ApplicationController
   def find_body_record
     @body_record = BodyRecord.find(params[:id])
   end
+
+  def move_to_top
+    redirect_to root_path unless (current_user.id == @body_record.user_id)
+  end
+  
 end

@@ -1,6 +1,7 @@
 class TrainingRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_training_record, only: [:destroy, :edit, :update]
+  before_action :move_to_top, only: :edit
 
   def index
     @training_record = TrainingRecord.where('user_id = ?', current_user.id).order(date: :desc).limit(1)
@@ -76,7 +77,9 @@ class TrainingRecordsController < ApplicationController
     end
   end
 
+
   private
+
 
   def trainingrecord_params
     params.require(:training_record).permit(:date, :training_event, :training_weight, :reps, :set).merge(user_id: current_user.id)
@@ -84,5 +87,9 @@ class TrainingRecordsController < ApplicationController
 
   def find_training_record
     @training_record = TrainingRecord.find(params[:id])
+  end
+
+  def move_to_top
+    redirect_to root_path unless (current_user.id == @training_record.user_id)
   end
 end
