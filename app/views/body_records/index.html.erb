@@ -1,95 +1,100 @@
 <%= render 'layouts/notifications' %>
-<h3 class="input-nav">体重・体脂肪記録を確認する</h1>
+<h1 class="input-nav">体重・体脂肪記録を確認する</h1>
 
 <% unless @body_record.empty? %>
-  <div class="next-page">
-    <%= link_to "推移をグラフで確認する", graph_body_records_path, method: :post,  class: "btn btn-success" %>
+  <div class="action-box">
+    <div class="box-position">
+      <%= link_to "推移をグラフで確認する", graph_body_records_path, method: :post,  class: "btn btn-primary" %>
+      <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
+    </div>
   </div>
     <p class="latest-text">最新の体重・体脂肪データ</p>
-<div class="item-box">  
-<% @body_record.each do |body_record| %>
-  <div class="data-box">
-    <table class="table-data-box">
-      <tbody>
-          <tr>
-            <th class="table-data">日付</th>
-            <td class="table-value"><%= body_record.date %></td>
-          </tr>
-          <tr>
-            <th class="table-data">体重</th>
-            <td class="table-value"><%= body_record.body_weight %>kg</td>
-          </tr>
-          <tr>
-            <th class="table-data">体脂肪率</th>
-            <td class="table-value"><%= body_record.fat %>%</td>
-          </tr>
-          <tr>
-            <th class="table-data">体調</th>
-            <td class="table-value"><%= body_record.todays_condition %></td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-    <div class="edit-delete-box">
-      <li class="edit-box">
-        <%= link_to "編集する", edit_body_record_path(body_record.id), method: :get, class: "btn btn-info" %>
-      </li>
-      <li class="delete-box">
-        <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, class: "btn btn-danger" %>
-      </li>
-    </div>
-<% end %>
 
-<% if @search_body_record != nil %>
-  <% unless @search_body_record.empty? %>
-    <% @search_body_record.each do |search_bodyrecord| %>
-    <p class="select-text">選択された日の体重・体脂肪データ</p>
-    <div class="data-box">
-     <table class="table-data-box">
-      <tbody>
-          <tr>
-            <th class="table-data">日付</th>
-            <td class="table-value"><%= search_bodyrecord.date %></td>
-          </tr>
-          <tr>
-            <th class="table-data">体重</th>
-            <td class="table-value"><%= search_bodyrecord.body_weight %>kg</td>
-          </tr>
-          <tr>
-            <th class="table-data">体脂肪率</th>
-            <td class="table-value"><%= search_bodyrecord.fat %>%</td>
-          </tr>
-          <tr>
-            <th class="table-data">体調</th>
-            <td class="table-value"><%= search_bodyrecord.todays_condition %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-      <div class="edit-delete-box">
-        <li class="edit-box">
-          <%= link_to "編集する", edit_body_record_path(search_bodyrecord.id), method: :get, class: "btn btn-info" %>
-        </li>
-        <li class="delete-box">
-          <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
-        </li>
-      </div>   
-    <% end %> 
-  <% else %>
-    <div class="empty">
-      <p>選択された日の体重・体脂肪データがありません</p>
-    </div>
-  <% end %>
-<% end %>
-
-      <div class="action-box">
-        <%= form_tag(search_body_records_path, method: :post) do %>
-          <p>見たい日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">
-          <input type="submit" value="確認する", class="btn btn-success"></p>
-        <% end %>
+  <div class="item-box">  
+    <% @body_record.each do |body_record| %>
+      <div class="data-box">
+        <table class="table-data-box">
+          <tbody>
+            <tr>
+              <th class="table-data">日付</th>
+              <td class="table-value"><%= body_record.date %></td>
+            </tr>
+            <tr>
+              <th class="table-data">体重</th>
+              <td class="table-value"><%= body_record.body_weight %>kg</td>
+            </tr>
+            <tr>
+              <th class="table-data">体脂肪率</th>
+              <td class="table-value"><%= body_record.fat %>%</td>
+            </tr>
+            <tr>
+              <th class="table-data">体調</th>
+              <td class="table-value"><%= body_record.todays_condition %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+        <div class="edit-delete-box">
+          <li class="edit-box">
+            <%= link_to "編集する", edit_body_record_path(body_record.id), method: :get, class: "btn btn-info" %>
+          </li>
+          <li class="delete-box">
+            <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, class: "btn btn-danger" %>
+          </li>
+        </div>
+    <% end %>
 
-</div>
+  <% if @search_body_record != nil %>
+    <% unless @search_body_record.empty? %>
+      <% @search_body_record.each do |search_bodyrecord| %>
+        <p class="select-text">選択された日の体重・体脂肪データ</p>
+          <div class="data-box">
+            <table class="table-data-box">
+              <tbody>
+                <tr>
+                  <th class="table-data">日付</th>
+                  <td class="table-value"><%= search_bodyrecord.date %></td>
+                </tr>
+                <tr>
+                  <th class="table-data">体重</th>
+                  <td class="table-value"><%= search_bodyrecord.body_weight %>kg</td>
+                </tr>
+                <tr>
+                  <th class="table-data">体脂肪率</th>
+                  <td class="table-value"><%= search_bodyrecord.fat %>%</td>
+                </tr>
+                <tr>
+                  <th class="table-data">体調</th>
+                  <td class="table-value"><%= search_bodyrecord.todays_condition %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <div class="edit-delete-box">
+          <li class="edit-box">
+            <%= link_to "編集する", edit_body_record_path(search_bodyrecord.id), method: :get, class: "btn btn-info" %>
+          </li>
+          <li class="delete-box">
+            <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
+          </li>
+        </div>   
+      <% end %>
+
+    <% else %>
+      <div class="empty">
+        <p>選択された日の体重・体脂肪データがありません</p>
+      </div>
+    <% end %>
+  <% end %>
+
+    <div class="action-box">
+      <%= form_tag(search_body_records_path, method: :post) do %>
+        <p>見たい日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">
+        <input type="submit" value="確認する", class="btn btn-success"></p>
+      <% end %>
+    </div>
+  </div>
+
 <% else %>
   <div class="empty">
     <p>記録されたデータがありません</p>

@@ -3,24 +3,10 @@
     <div class="form-group ">
       <%= form_with(model: @body_record, local: true) do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
-
         <label for="date">体重・体脂肪を編集する日付</label>
           <p class="edit-text"><%= @body_record.date %></p>
-
-          <label for="body_weight">体重を入力してください </label>
-            <p><%= f.text_field :body_weight, class: "form-input", placeholder:"例:60.2", style: "text-align:center" %> kg</p>
-          <label for="fat">体脂肪率を入力してください</label>
-            <p><%= f.text_field :fat, class: "form-input", placeholder:"例:18.3", style: "text-align:center" %> ％</p>
-        <label for="todays_condition">体調を選択してください</label>
-          <p><%= f.select :todays_condition, [["最高!",1],["良し",2],["普通",3],["良くない・・",4]], include_blank: "選択してください", class: "form-control" %></p>
-    
-        <div class="mb-3"> 
-          <button type="submit" class="btn btn-primary">保存する</button>
-        </div>         
+        <%= render 'shared/body_form'%>      
       <% end %>
-      
-      <div class="actions">
-        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
-      </div>
+        <%= render 'shared/mypage_link' %>
     </div>
   </div>

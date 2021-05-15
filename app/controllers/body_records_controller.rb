@@ -81,7 +81,8 @@ class BodyRecordsController < ApplicationController
   end
 
 
-  private
+    private
+    
 
   def body_params
     params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition).merge(user_id: current_user.id)

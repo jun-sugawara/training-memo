@@ -99,7 +99,6 @@ nav a:hover {
 	opacity: 0.7;
 }
 
-
 /* メイン部スタイル設定 */
 
 // 「必須」のアイコン
@@ -144,13 +143,13 @@ footer {
   justify-content: center;
 }
 
-// 体成分グラフページ・max重量ページ遷移ボタン
-.next-page {
-  display: flex;
-  justify-content: center;
+// マイページへ戻る/前のページへ戻るの配置
+.box-position {
+  padding: 15px;
 }
 
-//データ表示BOX
+
+//データ表示テーブルBOX
 .data-box {
   background-color: #FFF;
   width: 100vw;
@@ -205,14 +204,14 @@ footer {
   justify-content: center;
 }
 
-// 日付選択(失敗時)
+// 失敗時の日付選択フォーム
 .select-date-empty {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
 
-// 非表示の際の表示
+// 「データはありません」表示
 .empty {
   display: flex;
   justify-content: center;

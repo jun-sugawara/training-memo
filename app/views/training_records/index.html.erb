@@ -1,60 +1,62 @@
 <%= render 'layouts/notifications' %>
-<h3 class="input-nav">トレーニング記録を確認する</h3>
+<h1 class="input-nav">トレーニング記録を確認する</h1>
 
 <% unless @training_record.empty? %>
-  <div class="next-page">
-    <%= link_to "Max重量を確認する", max_training_records_path, method: :post, class: "btn btn-info" %>
+  <div class="action-box">
+    <div class="box-position">
+      <%= link_to "Max重量を確認する", max_training_records_path, method: :post, class: "btn btn-primary" %>
+      <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
+    </div>
   </div>
 
   <div class="select-date">
-  <%= form_tag(search_training_records_path, method: :post) do %>
-    <p>見たい日付を選択し、送信してください<input type="date" name="training_record[date]" id="training_record_date">
-    <input type="submit" value="確認する", class="btn btn-success"></p>
-  <% end %>
+    <%= form_tag(search_training_records_path, method: :post) do %>
+      <p>見たい日付を選択し、送信してください<input type="date" name="training_record[date]" id="training_record_date">
+      <input type="submit" value="確認する", class="btn btn-success"></p>
+    <% end %>
   </div>
-
 
 <div class="item-box">
 <% @training_record.each do |training_record| %>
   <div class="data-box">
     <table class="table-data-box">
       <tbody>
-          <tr>
-            <th class="table-data">日付</th>
-            <td class="table-value"><%= training_record.date %></td>
-          </tr>
-          <tr>
-          <% @training_genre.each do |training_genre|%>
-            <% if training_record.training_event == training_genre.id %>
-              <th class="table-data">種目</th>
-              <td class="table-value"><%= training_genre.event %></td>
-            <% end %>
+        <tr>
+          <th class="table-data">日付</th>
+          <td class="table-value"><%= training_record.date %></td>
+        </tr>
+        <tr>
+        <% @training_genre.each do |training_genre|%>
+          <% if training_record.training_event == training_genre.id %>
+            <th class="table-data">種目</th>
+            <td class="table-value"><%= training_genre.event %></td>
           <% end %>
-          </tr>
+        <% end %>
+        </tr>
+        <tr>
+          <th class="table-data">重さ</th>
+          <td class="table-value"><%= training_record.training_weight %>kg</td>
+        </tr>
+        <tr>
+          <th class="table-data">回数</th>
+          <td class="table-value"><%= training_record.reps %>回</td>
+        </tr>
           <tr>
-            <th class="table-data">重さ</th>
-            <td class="table-value"><%= training_record.training_weight %>kg</td>
-          </tr>
-          <tr>
-            <th class="table-data">回数</th>
-            <td class="table-value"><%= training_record.reps %>回</td>
-          </tr>
-           <tr>
-            <th class="table-data">セット数</th>
-            <td class="table-value"><%= training_record.set %>セット</td>
-          </tr>
+          <th class="table-data">セット数</th>
+          <td class="table-value"><%= training_record.set %>セット</td>
+        </tr>
       </tbody>
     </table>
   </div>
-      <div class="edit-delete-box">
-        <li class="edit-box">
-          <%= link_to "編集する", edit_training_record_path(training_record.id), method: :get, class: "btn btn-info" %>
-        </li>
-        <li class="delete-box">
-          <%= link_to "削除する", "/training_records/#{training_record.id}", method: :delete, class: "btn btn-danger" %>
-        </li>
-      </div>
-      <% end %>
+    <div class="edit-delete-box">
+      <li class="edit-box">
+        <%= link_to "編集する", edit_training_record_path(training_record.id), method: :get, class: "btn btn-info" %>
+      </li>
+      <li class="delete-box">
+        <%= link_to "削除する", "/training_records/#{training_record.id}", method: :delete, class: "btn btn-danger" %>
+      </li>
+    </div>
+  <% end %>
 </div>
       <% else %>
         <div class="empty">

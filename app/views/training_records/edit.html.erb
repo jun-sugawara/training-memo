@@ -3,29 +3,16 @@
     <div class="form-group">
       <%= form_with(model: @training_record, local: true) do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
-
-      <label for="date">編集する日付</label>
-        <p class="edit-text"><%= @training_record.date %></p>      
-      <label for="trining_event">行なった種目</label>
+          <label for="date">編集する日付</label>
+            <p class="edit-text"><%= @training_record.date %></p>      
+          <label for="trining_event">行なった種目</label>
         <% @training_genre.each do |training_genre|%>
           <% if @training_record.training_event == training_genre.id %>
             <p class="edit-text"><%= training_genre.event %></p>
           <% end %>
         <% end %>    
-
-      <label for="training_weight">重さを入力してください<span class="indispensable">必須</span></label>
-        <p><%= f.text_field :training_weight, class: "form-input", placeholder:"(※半角数字で入力)  例:55", style: "text-align:center" %> kg</p>
-      <label for="training_weight">回数を入力してください<span class="indispensable">必須</span></label>
-        <p><%= f.text_field :reps, class: "form-input", placeholder:"(※半角数字で入力)  例:10", style: "text-align:center" %> 回</p>
-      <label for="training_weight">セット数を選択してください<span class="indispensable">必須</span></label>
-        <p><%= f.select :set, [[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10]], include_blank: "選択してください", class: "form-input" %></p>
-
-        <div class="mb-3"> 
-          <button type="submit" class="btn btn-primary">保存する</button>
-        </div>      
+          <%= render 'shared/training_form'%>
       <% end %>
-      <div class="actions">
-        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "btn btn-success" %>
-      </div>
+          <%= render 'shared/mypage_link' %>
     </div>        
   </div>
