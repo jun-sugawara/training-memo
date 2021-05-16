@@ -1,3 +1,56 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 「筋トレしていてこんなことありませんか？」スタイル指定
+#main_image img {
+	width: 90%;
+  margin-bottom: 20px;
+}
+
+.main_appeal {
+  text-align: center;
+  margin: 50px 50px 20px 50px;
+}
+
+.main_question {
+  font-size: 1.8em;
+}
+
+// 「悩み」部分スタイル指定
+.appeal {
+  position: relative;
+  left: 50%;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.appeal_box {
+  position: relative;
+  float: right;
+  left: -50%;
+  margin-bottom: 20px;
+}
+
+// サブイメージスタイル指定
+#sub_image img {
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.sub_text {
+  font-size: 20px;
+  text-align: center;¥
+}
+
+// サービス紹介部分スタイル指定
+#concept {
+  font-size: 1.3em;
+	text-align: center;
+	margin-bottom: 30px;
+}
+ 
+#concept_logo {
+	margin-bottom: 5px;
+  width: 90%;
+}
+
+#start_logo {
+  width: 90%;
+}

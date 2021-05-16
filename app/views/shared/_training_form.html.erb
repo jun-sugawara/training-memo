@@ -1,0 +1,11 @@
+<%= form_with(model: @training_record, local: true) do |f| %>
+  <label for="training_weight">重さを入力してください<span class="indispensable">必須</span></label>
+    <p><%= f.text_field :training_weight, class: "form-input", placeholder:"(※半角数字で入力)  例:55", style: "text-align:center" %> kg</p>
+  <label for="training_weight">回数を入力してください<span class="indispensable">必須</span></label>
+    <p><%= f.text_field :reps, class: "form-input", placeholder:"(※半角数字で入力)  例:10", style: "text-align:center" %> 回</p>
+  <label for="training_weight">セット数を選択してください<span class="indispensable">必須</span></label>
+    <p><%= f.select :set, [[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10]], include_blank: "選択してください", class: "form-input" %></p>
+  <div class="mb-3"> 
+    <button type="submit" class="btn btn-primary">保存する</button>
+  </div>   
+<% end %>

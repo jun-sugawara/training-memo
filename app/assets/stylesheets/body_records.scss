@@ -1,3 +1,36 @@
-// Place all the styles related to the body_records controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 選択された日の体重・体脂肪データの文字
+.select-text {
+  text-align: center;
+  font-size:  25px;
+  color:  blue;
+}
+
+// 最新の体重・体脂肪データ
+.latest-text {
+  text-align: center;
+  font-size: 25px;
+  color: red;
+}
+
+// グラフ
+.graph {
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 10px;
+}
+
+.month {
+  padding: 10px, 15px 5px 10px;
+  margin:  10px 20px;
+  background-color: aquamarine;
+}
+.week {
+  padding: 10px, 15px 5px 10px;
+  margin:  10px 20px;
+  background-color: darksalmon;
+}
+
+.graph-text {
+  font-size: 22px;
+  text-align: center;
+}
