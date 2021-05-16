@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: training_memo_production
-  username: training_memo
-  password: <%= ENV['TRAINING_MEMO_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
