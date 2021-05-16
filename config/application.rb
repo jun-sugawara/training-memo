@@ -11,6 +11,7 @@ module TrainingMemo
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.i18n.default_locale = :ja
+    config.assets.initialize_on_precompile = false
     config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
       html_tag
     end
