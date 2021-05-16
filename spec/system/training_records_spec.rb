@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'トレーニング記録保存', type: :system do
   before do
-    @training_record = FactoryBot.build(:training_record)
+    @training_record = FactoryBot.create(:training_record)
+    @training_genre = FactoryBot.create(:training_genre)
     @user = FactoryBot.create(:user)
   end
   context 'トレーニング記録の保存ができない時' do
@@ -26,10 +27,10 @@ RSpec.describe 'トレーニング記録保存', type: :system do
       visit user_path(@user.id)
       expect(page).to have_content('トレーニングを記録する')
       # # トレーニング記録ページに遷移する
-      visit new_training_record_path
+      click_on('トレーニングを記録する')
       # # フォームに情報を入力する
       fill_in 'training_record_date', with: @training_record.date
-      FactoryBot.create_list(:training_record, 1)
+      # FactoryBot.create_list(:training_record, 1)
       binding.pry
       select training_record.training_event
       # fill_in 'body_record_fat', with: @body_record.fat
