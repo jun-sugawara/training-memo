@@ -3,15 +3,14 @@
   <div class="username">
   <%= @nickname %><p>さんのページ</p>
   </div>
-  <%# <h4>今週トレーニングした日数</h4> %>
-  <div class="select-action">
-    <div class="action-box">
-      <p class="run-btn"><%= link_to "トレーニングを記録する", new_training_record_path, class: "btn bg-success text-white" %></p>
-      <p class="run-btn"><%= link_to "体重・体脂肪を記録する", new_body_record_path, class: "btn bg-warning" %></p>
-    </div>
-    <div class="action-box">
-      <p class="run-btn"><%= link_to "トレーニングを確認する", training_records_path, class: "btn bg-success text-white" %></p>
-      <p class="run-btn"><%= link_to "体重・体脂肪を確認する", body_records_path, class: "btn bg-warning" %></p>
-    </div>
+    <div class="select-action">
+      <div class="action-box">
+        <p class="run-btn"><%= link_to "トレーニングを記録する", new_training_record_path, class: "btn bg-success text-white" %></p>
+        <p class="run-btn"><%= link_to "体重・体脂肪を記録する", new_body_record_path, class: "btn bg-warning" %></p>
+      </div>
+      <div class="action-box">
+        <p class="run-btn"><%= link_to "トレーニングを確認する", training_records_path, class: "btn bg-success text-white" %></p>
+        <p class="run-btn"><%= link_to "体重・体脂肪を確認する", body_records_path, class: "btn bg-warning" %></p>
+      </div>
   </div>
 </div>

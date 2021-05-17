@@ -14,7 +14,7 @@
 <%# 筋トレしていてこんなことありませんかエリア %>
 <div class="container">
   <h2 class="main_question">筋トレをしていて、こんなことありませんか?</h2>
-<%= image_tag "main_image.jpg"%>
+   <%= image_tag "main_image.jpg" %>
    </div>
 <%# 悩みエリア %>
   <div class="appeal_box">
@@ -27,7 +27,7 @@
 
 <section id="sub_image">
   <div class="container">
-    <img src="/assets/sub_image.jpg">
+    <%= image_tag "sub_image.jpg" %>
       <p class="sub_text">がむしゃらにトレーニングをしても成果はついてきません・・・</p>
       <p class="sub_text">成果を出すためには、<b>数値の記録・そして毎日の確認が必要</b>です。</p>
   </div>
@@ -37,7 +37,7 @@
 <section id="concept">
   <div class="container">
     <h2>~サービス紹介~</h2>
-   <img id="concept_logo" src="/assets/concept_image.jpg">
+     <%= image_tag "concept_image.jpg" %>
       <p><b>TrainingMemoはシンプルで使いやすい筋トレ・体成分管理ツールです！</b></p>
       <p>TrainingMemoで記録して、効率よくトレーニングしましょう！</p>
 	</div>
@@ -47,7 +47,7 @@
 <section id="start">
 <div class="container">
 	<h2>~TrainingMemoを始めよう！~</h2>
-	  <img id="start_logo" src="/assets/start_image.jpg">
+	   <%= image_tag "start_image.jpg" %>
       <div class="user_nav">
         <% if user_signed_in? %>
           <%= link_to "マイページへ進む", user_path(current_user.id), method: :get, class: "btn btn-success btn-lg" %>
