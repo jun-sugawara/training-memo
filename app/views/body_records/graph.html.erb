@@ -11,8 +11,8 @@
   <p class="graph-text">１ヶ月の推移を確認</p>
     <div class="action-box">
       <%= form_tag(month_graph_body_records_path, method: :post) do %>
-        <p>起点の日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">
-        <input type="submit" value="確認する", class="btn btn-success"></p>
+        <p>起点の日付を選択してください<input type="date" name="body_record[date]" id="body_record_month">
+        <input type="submit" value="確認する", class="btn btn-success", id="body_record_month_graph"></p>
       <% end %>
     </div>
 </div>
@@ -21,8 +21,8 @@
   <p class="graph-text">１週間の推移を確認</p>
     <div class="action-box">
       <%= form_tag(week_graph_body_records_path, method: :post) do %>
-        <p>起点の日付を選択してください<input type="date" name="body_record[date]" id="body_record_date">
-        <input type="submit" value="確認する", class="btn btn-success"></p>
+        <p>起点の日付を選択してください<input type="date" name="body_record[date]" id="body_record_week">
+        <input type="submit" value="確認する", class="btn btn-success", id="body_record_week_graph"></p>
       <% end %>
     </div>
 </div>
