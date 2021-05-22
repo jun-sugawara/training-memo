@@ -7,6 +7,7 @@ module BodyRecordInputSupport
     expect {
       click_on('保存する')
     }.to change { BodyRecord.count }.by(1)
+    expect(current_path).to eq user_path(@user)
     expect(page).to have_content('保存が完了しました')
   end
 end
