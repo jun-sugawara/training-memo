@@ -50,15 +50,16 @@ class BodyRecordsController < ApplicationController
 
   def month_graph
     @body_record = if @body_record.date.present?
-                    BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @body_record.date, @body_record.date >> 1, current_user.id  )
+                     BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @body_record.date, @body_record.date >> 1,
+                                      current_user.id)
                    else
-                    BodyRecord.none
+                     BodyRecord.none
                    end
     @weight_graph = []
     @fat_graph = []
     @body_record.each do |s|
       @data = [s.date.to_s, s.body_weight]
-      @weight_graph <<  [s.date.to_s, s.body_weight]
+      @weight_graph << [s.date.to_s, s.body_weight]
       @fat_graph << [s.date.to_s, s.fat]
     end
     render :graph
@@ -66,23 +67,22 @@ class BodyRecordsController < ApplicationController
 
   def week_graph
     @body_record = if @body_record.date.present?
-                      BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @body_record.date, @body_record.date + 7, current_user.id  )
-                    else
-                      BodyRecord.none
-                    end
+                     BodyRecord.where('date >=  ? AND date <= ? AND user_id = ?', @body_record.date, @body_record.date + 7,
+                                      current_user.id)
+                   else
+                     BodyRecord.none
+                   end
     @weight_graph = []
     @fat_graph = []
     @body_record.each do |s|
       @data = [s.date.to_s, s.body_weight]
-      @weight_graph <<  [s.date.to_s, s.body_weight]
+      @weight_graph << [s.date.to_s, s.body_weight]
       @fat_graph << [s.date.to_s, s.fat]
     end
     render :graph
   end
 
-
-    private
-    
+  private
 
   def body_params
     params.require(:body_record).permit(:date, :body_weight, :fat, :todays_condition).merge(user_id: current_user.id)
@@ -93,7 +93,7 @@ class BodyRecordsController < ApplicationController
   end
 
   def move_to_top
-    redirect_to root_path unless (current_user.id == @body_record.user_id)
+    redirect_to root_path unless current_user.id == @body_record.user_id
   end
 
   def where_body_record
@@ -103,6 +103,4 @@ class BodyRecordsController < ApplicationController
   def set_body_record
     @body_record = BodyRecord.new(body_params)
   end
-
-  
 end

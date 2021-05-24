@@ -11,7 +11,7 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       visit root_path
       visit user_path(@user.id)
       expect(current_path).to eq root_path
-      expect(page).to have_no_content("マイページへ進む")
+      expect(page).to have_no_content('マイページへ進む')
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       visit root_path
       visit user_path(@user.id)
       expect(current_path).to eq root_path
-      expect(page).to have_no_content("マイページへ進む")
+      expect(page).to have_no_content('マイページへ進む')
     end
   end
 
@@ -50,9 +50,9 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       fill_in 'training_record_training_weight', with: 80.0
       fill_in 'training_record_reps', with: 5.0
       select '5', from: 'training_record_set'
-      expect{
+      expect do
         click_on('保存する')
-      }.to change { TrainingRecord.count }.by(0)
+      end.to change { TrainingRecord.count }.by(0)
       expect(current_path).to eq training_records_path
       expect(page).to have_content('編集が完了しました')
       expect(page).to have_content('80.0kg')
@@ -66,7 +66,7 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       visit root_path
       visit user_path(@user.id)
       expect(current_path).to eq root_path
-      expect(page).to have_no_content("マイページへ進む")
+      expect(page).to have_no_content('マイページへ進む')
     end
   end
 
@@ -82,9 +82,9 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       expect(page).to have_content(@training_record.training_weight)
       expect(page).to have_content(@training_record.reps)
       expect(page).to have_content(@training_record.set)
-      expect{
+      expect do
         click_on('削除する')
-      }.to change { TrainingRecord.count }.by (-1)
+      end.to change { TrainingRecord.count }.by(-1)
       expect(current_path).to eq training_records_path
       expect(page).to have_content('削除が完了しました')
     end
@@ -180,6 +180,4 @@ RSpec.describe 'トレーニング記録機能', type: :system do
       expect(page).to have_content(@training_record.date)
     end
   end
-
-
 end
