@@ -1,57 +1,60 @@
-## usersテーブル
+# Training Memo
+## アプリケーション概要
+行った筋力トレーニング、及び体重・体脂肪の記録・確認ができるメモアプリケーションです。
+## 機能一覧
+- ユーザー登録機能  
+- トレーニング記録機能  
+- トレーニング編集・削除機能  
+- トレーニング検索機能  
+- MAX重量検索、表示機能  
+- 体重、体脂肪記録機能  
+- 体重、体脂肪編集・削除機能  
+- 体重、体脂肪グラフ表示機能
 
-| Column             | Type     | Options                   |
-| ------------------ | -------- | ------------------------- |
-| nickname           | string   | null: false               |
-| email              | string   | null: false, unique: true |
-| encrypted_password | string   | null: false               |
-| age                | integer  | null: false               |
-| gender             | integer  | null: false               |
+## アプリケーションURL
+http://52.68.226.84/
 
-### Association
+## チェック担当者様フロー
+**チェック用にテストデータをご用意しております。下記の流れに沿ってご確認ください。**  
+**日付選択のフォームでは、2021/05/01~2021/05/31の範囲をご指定ください**
+1. ヘッダーのログインボタンよりTestアカウントにてログインしてください  
+チェック用メールアドレス「**test@gmail.com**」※半角英数  
+チェック用パスワード「**a11111**」※半角英数  
+2. ヘッダーの「テストアカウント」をクリックしマイページへ遷移してください
+3. マイページ内「トレーニングを確認する」「体重・体脂肪を確認する」ボタンより確認画面に遷移します。
+4. それぞれの確認ページでは日付を選択し「確認する」ボタンを押すことでその日に行ったトレーニング・体重・体脂肪を確認することができます。  
+5. トレーニング確認ページの「MAX重量を確認する」ボタンを押すことで、MAX重量確認ページに遷移します。種目を選択し、「確認する」ボタンを押すことで種目別のMAX重量を確認できます。  
+6. 体重・体脂肪確認ページの「推移をグラフで確認する」ボタンを押すことでグラフページへ遷移します。日付を選択し「確認する」ボタンを押すことで入力された日付から１ヶ月（もしくは１週間）の推移をグラフで確認できます。
+7. トレーニング・体重・体脂肪確認ページではデータの削除・編集が可能です。また、マイページから「トレーニングを記録する」「体重・体脂肪を記録する」ボタンから入力ページへ遷移します。必要に応じ、ご確認ください。
 
-- has_many :training_records
-- has_many :body_records
+## 開発環境・使用技術
+- 言語:HTML,CSS,Ruby,JavaScript,SQL  
+- フレームワーク:Ruby on Rails  
+- データベース:MySQL
+- 本番環境：AWS EC2  
+- デプロイ：Capistranoを用いた自動デプロイ 
+- Rspecを用いた単体テスト及び結合テスト（計71項目）  
+- レスポンシブ対応（PC・スマートフォン・タブレット端末）  
+- rubocopを用いたコード整形  
+- SQLを用いた日付・データの取得
+- 投稿時・データ確認時、バリデーションを用いた日本語エラーメッセージ表示
+- 非ログインユーザーのトップページリダイレクト処理
+- includesメソッドを用いた排他処理
+- 他ユーザーページへのアクセス時のトップページリダイレクト処理
+- chartkickを用いたグラフ表示
+## 作成背景  
+パーソナルトレーナーとしての業務経験より、「結果が出ない」原因の１つとして数値確認をしないことがあると思っておりました。記録データを保存できて、それでいてシンプルで使いやすいサービスがあると便利だと思い、作成いたしました。
+## 今後作成予定の機能
+トレーニングレベル評価機能、体重・体脂肪、年齢性別ごとの評価機能など、ユーザーのモチベーションアップに起因する機能を実装予定です。
 
 
-## Training_recordsテーブル
+## テーブル設計
+[![Image from Gyazo](https://i.gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45.png)](https://gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45)
 
-| Column          | Type       | Options           |
-| --------------- | ---------- | ----------------- |
-| date            | date       | null: false       |
-| training_event  | integer    | null: false       |
-| training_weight | float      | null: false       |
-| reps            | integer    | null: false       |
-| set             | integer    | null: false       |
-| user            | references | foreign_key: true |
-
-
-### Association
-
-- belongs_to :user
-- has_many :training_genres
-
-## Body_recordsテーブル
-
-| Column           | Type       | Options           |
-| ---------------- | ---------- | ----------------- |
-| date             | date       | null: false       |
-| body_weight      | float      | null: false       |
-| fat              | float      | null: false       |
-| todays_condition | string     |                   |
-| user             | references | foreign_key: true |
-
-### Association
-
-- belongs_to :user
-
-## Training_genresテーブル
-
-| Column           | Type       | Options           |
-| ---------------- | ---------- | ----------------- |
-| part             | string     | null: false       |
-| event            | string     | null: false       |
-
-### Association
-
-- belongs_to :training_record
+## デモ映像
+### 体脂肪グラフ確認
+[![Image from Gyazo](https://i.gyazo.com/7502e0e30ff8b909cbad750ed57dba3b.gif)](https://gyazo.com/7502e0e30ff8b909cbad750ed57dba3b)
+### 日別筋トレ一覧表示確認
+[![Image from Gyazo](https://i.gyazo.com/41911962a7531954d7e9ae6405ee17bd.gif)](https://gyazo.com/41911962a7531954d7e9ae6405ee17bd)
+## MAX重量確認
+[![Image from Gyazo](https://i.gyazo.com/023b1308820899c91c777703b3a10069.gif)](https://gyazo.com/023b1308820899c91c777703b3a10069)
