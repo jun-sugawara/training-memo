@@ -63,7 +63,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'パスワード', with: ''
       click_on('ログインする')
       expect(current_path).to eq new_user_session_path
-      expect(page).to have_content('Eメールまたはパスワードが違います。')  
+      expect(page).to have_content('Eメールまたはパスワードが違います。')
     end
   end
 end

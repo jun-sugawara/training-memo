@@ -10,11 +10,11 @@ class TrainingRecordsController < ApplicationController
   end
 
   def search
-    if @training_record.date.present?
-      @training_record = TrainingRecord.where('date = ? AND user_id = ?', @training_record.date.to_s, current_user.id)
-    else
-      @training_record = TrainingRecord.none
-    end
+    @training_record = if @training_record.date.present?
+                         TrainingRecord.where('date = ? AND user_id = ?', @training_record.date.to_s, current_user.id)
+                       else
+                         TrainingRecord.none
+                       end
     render :index
   end
 
@@ -23,12 +23,12 @@ class TrainingRecordsController < ApplicationController
   end
 
   def max_search
-    if @training_record.training_event.present?
-      @training_record = TrainingRecord.where('training_event = ? AND user_id = ?', @training_record.training_event.to_s,
+    @training_record = if @training_record.training_event.present?
+                         TrainingRecord.where('training_event = ? AND user_id = ?', @training_record.training_event.to_s,
                                               current_user.id).order(training_weight: :desc).limit(1)
-    else
-      @training_record = TrainingRecord.none
-    end
+                       else
+                         TrainingRecord.none
+                       end
     render :max
   end
 
@@ -64,10 +64,8 @@ class TrainingRecordsController < ApplicationController
     end
   end
 
+  private
 
-    private
-
-    
   def trainingrecord_params
     params.require(:training_record).permit(:date, :training_event, :training_weight, :reps, :set).merge(user_id: current_user.id)
   end
@@ -77,7 +75,7 @@ class TrainingRecordsController < ApplicationController
   end
 
   def move_to_top
-    redirect_to root_path unless (current_user.id == @training_record.user_id)
+    redirect_to root_path unless current_user.id == @training_record.user_id
   end
 
   def set_training_genre
@@ -87,5 +85,4 @@ class TrainingRecordsController < ApplicationController
   def set_training_record
     @training_record = TrainingRecord.new(trainingrecord_params)
   end
-
 end
