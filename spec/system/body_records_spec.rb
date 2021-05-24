@@ -118,9 +118,6 @@ end
 
 RSpec.describe '体組成グラフ確認機能', type: :system do
   before do
-    # @body_record1 = FactoryBot.create(:body_record)
-    # @body_record2 = FactoryBot.create(:body_record)
-    # @body_record3 = FactoryBot.create(:body_record)
     @user = FactoryBot.create(:user)
   end
 
@@ -174,8 +171,6 @@ RSpec.describe '体組成グラフ確認機能', type: :system do
       click_on('推移をグラフで確認する')
       fill_in 'body_record_month', with: '002021-05-01'
       find('#body_record_month_graph').click
-      # ここからグラフが存在し、データが入っていることの確認の記述
-      # binding.pry
     end
   end
 end

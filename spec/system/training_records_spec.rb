@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'トレーニング記録機能', type: :system do
   before do
-    # @training_genre = FactoryBot.create(:training_genre)
     @training_record = FactoryBot.create(:training_record)
     @user = FactoryBot.create(:user)
   end
