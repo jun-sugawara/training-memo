@@ -39,7 +39,7 @@
             <%= link_to "編集する", edit_body_record_path(body_record.id), method: :get, class: "btn btn-info" %>
           </li>
           <li class="delete-box">
-            <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, class: "btn btn-danger" %>
+            <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, data: { confirm: "本当に削除しますか？この操作は取り消せません" }, class: "btn btn-danger" %>
           </li>
         </div>
     <% end %>
@@ -57,7 +57,7 @@
                 </tr>
                 <tr>
                   <th class="table-data">体重</th>
-                  <td class="table-value"><%= search_bodyrecord.body_weight %>kg</td>
+                  <td class="table-value"><%= search_bodyrecord.body_weight %>kg(最新データより、-10Kg)</td>
                 </tr>
                 <tr>
                   <th class="table-data">体脂肪率</th>
@@ -75,7 +75,7 @@
             <%= link_to "編集する", edit_body_record_path(search_bodyrecord.id), method: :get, class: "btn btn-info" %>
           </li>
           <li class="delete-box">
-            <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
+            <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, data: { confirm: "本当に削除しますか？この操作は取り消せません" }, class: "btn btn-danger" %>
           </li>
         </div>   
       <% end %>
