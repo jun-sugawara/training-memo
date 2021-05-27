@@ -11,6 +11,8 @@
     <p class="latest-text">最新の体重・体脂肪データ</p>
 
   <div class="item-box">  
+  <% @weight_defference = 0 %>
+  <% @fat_defference = 0 %>
     <% @body_record.each do |body_record| %>
       <div class="data-box">
         <table class="table-data-box">
@@ -22,10 +24,12 @@
             <tr>
               <th class="table-data">体重</th>
               <td class="table-value"><%= body_record.body_weight %>kg</td>
+              <% @weight_defference = body_record.body_weight %>
             </tr>
             <tr>
               <th class="table-data">体脂肪率</th>
               <td class="table-value"><%= body_record.fat %>%</td>
+              <% @fat_defference = body_record.fat %>
             </tr>
             <tr>
               <th class="table-data">体調</th>
@@ -39,7 +43,7 @@
             <%= link_to "編集する", edit_body_record_path(body_record.id), method: :get, class: "btn btn-info" %>
           </li>
           <li class="delete-box">
-            <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, class: "btn btn-danger" %>
+            <%= link_to "削除する", "/body_records/#{body_record.id}", method: :delete, data: { confirm: "本当に削除しますか？この操作は取り消せません" }, class: "btn btn-danger" %>
           </li>
         </div>
     <% end %>
@@ -57,11 +61,19 @@
                 </tr>
                 <tr>
                   <th class="table-data">体重</th>
-                  <td class="table-value"><%= search_bodyrecord.body_weight %>kg</td>
+                    <% if @weight_defference <= search_bodyrecord.body_weight %>
+                      <td class="table-value-large"><%= "#{search_bodyrecord.body_weight}Kg(最新データより＋#{(search_bodyrecord.body_weight - @weight_defference).round(2)}Kg)" %></td>
+                    <% else %>
+                      <td class="table-value-small"><%= "#{search_bodyrecord.body_weight}Kg(最新データより−#{(@weight_defference - search_bodyrecord.body_weight).round(2)}Kg)" %></td>
+                    <% end %>
                 </tr>
                 <tr>
                   <th class="table-data">体脂肪率</th>
-                  <td class="table-value"><%= search_bodyrecord.fat %>%</td>
+                    <% if @fat_defference <= search_bodyrecord.fat %>
+                      <td class="table-value-large"><%= "#{search_bodyrecord.fat}%(最新データより＋#{(search_bodyrecord.fat - @fat_defference).round(2)}%)" %></td>
+                    <% else %>
+                      <td class="table-value-small"><%= "#{search_bodyrecord.fat}%(最新データより−#{(@fat_defference - search_bodyrecord.fat).round(2)}%)" %></td>
+                    <% end %>
                 </tr>
                 <tr>
                   <th class="table-data">体調</th>
@@ -75,7 +87,7 @@
             <%= link_to "編集する", edit_body_record_path(search_bodyrecord.id), method: :get, class: "btn btn-info" %>
           </li>
           <li class="delete-box">
-            <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, class: "btn btn-danger" %>
+            <%= link_to "削除する", "/body_records/#{search_bodyrecord.id}", method: :delete, data: { confirm: "本当に削除しますか？この操作は取り消せません" }, class: "btn btn-danger" %>
           </li>
         </div>   
       <% end %>
