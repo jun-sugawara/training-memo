@@ -52,7 +52,7 @@ http://52.68.226.84/
 [![Image from Gyazo](https://i.gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45.png)](https://gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45)
 
 ## デモ映像
-### 体重・体脂肪の差分の表示
+### 体重・体脂肪差分の表示
 [![Image from Gyazo](https://i.gyazo.com/93d41a2e41a9e71118e29f59644f2ef1.gif)](https://gyazo.com/93d41a2e41a9e71118e29f59644f2ef1)
 ### 体脂肪グラフ確認
 [![Image from Gyazo](https://i.gyazo.com/7502e0e30ff8b909cbad750ed57dba3b.gif)](https://gyazo.com/7502e0e30ff8b909cbad750ed57dba3b)
