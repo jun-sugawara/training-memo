@@ -51,3 +51,32 @@
   color: blue;
   font-weight: bold;
 }
+
+.direction-box {
+  display: flex;
+  justify-content: center;
+}
+
+.left-nav {
+  float: left;
+  text-align: center;
+  margin-right: 12px;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.right-box {
+  float: right;
+}
+
+.plus-text {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.minus-text {
+  color: blue;
+  font-weight: bold;
+  font-size: 16px;
+}
