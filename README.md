@@ -52,11 +52,11 @@ http://52.68.226.84/
 [![Image from Gyazo](https://i.gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45.png)](https://gyazo.com/5cbbfaf946e8a8660f35bc33742f7e45)
 
 ## デモ映像
-### 体重・体脂肪差分の表示
-[![Image from Gyazo](https://i.gyazo.com/93d41a2e41a9e71118e29f59644f2ef1.gif)](https://gyazo.com/93d41a2e41a9e71118e29f59644f2ef1)
-### 体脂肪グラフ確認
+### 体重・体脂肪差分の表示(選んだ日付と最新の日付との体重・体脂肪差分を表示します)
+[![Image from Gyazo](https://i.gyazo.com/c9f07cc868bff5590829e7dfec072388.gif)](https://gyazo.com/c9f07cc868bff5590829e7dfec072388)
+### 体脂肪グラフ確認（選択した日付より１ヶ月分の数値をグラフ表示します）※１週間表示も可能です
 [![Image from Gyazo](https://i.gyazo.com/7502e0e30ff8b909cbad750ed57dba3b.gif)](https://gyazo.com/7502e0e30ff8b909cbad750ed57dba3b)
-### 日別筋トレ一覧表示確認
+### 日別筋トレ一覧表示確認（選択した日付の筋トレ履歴を一覧で確認できます）
 [![Image from Gyazo](https://i.gyazo.com/41911962a7531954d7e9ae6405ee17bd.gif)](https://gyazo.com/41911962a7531954d7e9ae6405ee17bd)
-## MAX重量確認
+### MAX重量確認（選択された種目の最大重量と、達成日を確認できます）
 [![Image from Gyazo](https://i.gyazo.com/786c06560d58a5d8f1cb022022cb5637.gif)](https://gyazo.com/786c06560d58a5d8f1cb022022cb5637)
