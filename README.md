@@ -59,4 +59,4 @@ http://52.68.226.84/
 ### 日別筋トレ一覧表示確認
 [![Image from Gyazo](https://i.gyazo.com/41911962a7531954d7e9ae6405ee17bd.gif)](https://gyazo.com/41911962a7531954d7e9ae6405ee17bd)
 ## MAX重量確認
-[![Image from Gyazo](https://i.gyazo.com/023b1308820899c91c777703b3a10069.gif)](https://gyazo.com/023b1308820899c91c777703b3a10069)
+[![Image from Gyazo](https://i.gyazo.com/786c06560d58a5d8f1cb022022cb5637.gif)](https://gyazo.com/786c06560d58a5d8f1cb022022cb5637)
