@@ -61,7 +61,9 @@
                 </tr>
                 <tr>
                   <th class="table-data">体重</th>
-                    <% if @weight_defference <= search_bodyrecord.body_weight %>
+                    <% if @weight_defference == search_bodyrecord.body_weight %>
+                      <td class="table-value"><%= search_bodyrecord.body_weight %>kg(差分＋−0)</td>
+                    <% elsif @weight_defference <= search_bodyrecord.body_weight %>
                       <td class="table-value-large"><%= "#{search_bodyrecord.body_weight}Kg(最新データより＋#{(search_bodyrecord.body_weight - @weight_defference).round(2)}Kg)" %></td>
                     <% else %>
                       <td class="table-value-small"><%= "#{search_bodyrecord.body_weight}Kg(最新データより−#{(@weight_defference - search_bodyrecord.body_weight).round(2)}Kg)" %></td>
@@ -69,7 +71,9 @@
                 </tr>
                 <tr>
                   <th class="table-data">体脂肪率</th>
-                    <% if @fat_defference <= search_bodyrecord.fat %>
+                    <%if @fat_defference == search_bodyrecord.fat %>
+                      <td class="table-value"><%= search_bodyrecord.fat %>%(差分＋−0)</td>
+                    <% elsif @fat_defference <= search_bodyrecord.fat %>
                       <td class="table-value-large"><%= "#{search_bodyrecord.fat}%(最新データより＋#{(search_bodyrecord.fat - @fat_defference).round(2)}%)" %></td>
                     <% else %>
                       <td class="table-value-small"><%= "#{search_bodyrecord.fat}%(最新データより−#{(@fat_defference - search_bodyrecord.fat).round(2)}%)" %></td>
