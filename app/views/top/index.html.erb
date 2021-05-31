@@ -83,13 +83,17 @@
 <section id="start">
 <div class="container">
 	<h2>~TrainingMemoを始めよう！~</h2>
+  <div class="start-box">
 	   <%= image_tag "start_image.jpg" %>
       <div class="user_nav">
         <% if user_signed_in? %>
           <%= link_to "マイページへ進む", user_path(current_user.id), method: :get, class: "btn btn-success btn-lg" %>
         <% else %>
           <%= link_to "新規登録してTrainingMemoを始める", new_user_registration_path, class: "btn btn-success btn-lg" %>
-      </div>
         <% end %>
+        <p class="free">全ての機能は<span class="free-text">無料</span>です！<br>
+        さあ、始めましょう！</p>
+      </div>
+    </div>
 </section>
 </main>

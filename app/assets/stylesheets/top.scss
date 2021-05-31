@@ -106,6 +106,31 @@
 }
 
 // TrainingMemoを始めよう部分スタイル指定
+// 新規登録してTrainingMemoを始める
+.start-box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.user_nav {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 1.5em;
+}
+
 #start img {
-  width: 80%;
+  width: 50%;
+  float: left;
+}
+
+.free {
+  margin-top: 20px;
+  font-size: 1.4em;
+}
+
+.free-text {
+  color: blue;
+  font-weight: bold;
 }
