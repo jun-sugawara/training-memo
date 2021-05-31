@@ -4,11 +4,6 @@
   margin-bottom: 20px;
 }
 
-// .main_appeal {
-//   text-align: center;
-//   margin: 50px 50px 20px 50px;
-// }
-
 .main_question {
   font-size: 1.8em;
 }
@@ -51,6 +46,91 @@
   margin-bottom: 5px;
 }
 
+// サービス紹介Box指定
+.service-text {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.easy-text {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.reason-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-pict {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.list-pict-max {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.list {
+  list-style: none;
+}
+
+.step-text {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.function-text {
+  font-size: 22px;
+}
+
+.list-box {
+  background-color: white;
+  margin: 5px;
+  position: relative;
+}
+
+.list-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 55px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 55px;
+  background-color: gray;
+  color: #fff;
+}
+
+// TrainingMemoを始めよう部分スタイル指定
+// 新規登録してTrainingMemoを始める
+.start-box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.user_nav {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 1.5em;
+}
+
 #start img {
-  width: 80%;
+  width: 50%;
+  float: left;
+}
+
+.free {
+  margin-top: 20px;
+  font-size: 1.4em;
+}
+
+.free-text {
+  color: blue;
+  font-weight: bold;
 }

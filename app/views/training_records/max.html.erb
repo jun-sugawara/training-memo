@@ -8,7 +8,7 @@
 
   <div class="select-date">
   <%= form_with model: @training_record, url: max_search_training_records_path, method: :post, local: true do |f| %>
-    <p>種目を選択し、送信してください<%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%>
+    <p>種目を選択してください<%= f.collection_select :training_event, TrainingGenre.all, :id, :event, include_blank:"選択してください", class: "form-control"%>
     <%= f.submit "確認する", class:"btn btn-success"%></p>
   <% end %>
   </div>

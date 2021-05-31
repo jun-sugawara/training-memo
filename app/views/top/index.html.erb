@@ -36,10 +36,46 @@
 <!-- サービス紹介エリア -->
 <section id="concept">
   <div class="container">
-    <h2>~サービス紹介~</h2>
-     <%= image_tag "concept_image.jpg" %>
-      <p><b>TrainingMemoはシンプルで使いやすい筋トレ・体成分管理ツールです！</b></p>
-      <p>TrainingMemoで記録して、効率よくトレーニングしましょう！</p>
+    <h1>~サービス紹介~</h1>
+      <p class="service-text">TrainingMemoはシンプルで使いやすい<br>筋トレ・体成分管理ツールです！</br></p>
+      <p>TrainingMemoを使って、効率よくトレーニングしましょう！</p>
+    <h2 class="easy-text">2ステップでかんたん利用!</h2>
+
+    <ul class="reason-list">
+      <div class="list-box">
+        <li class="list">
+          <span class='list-number'>①</span>
+          <h3 class="step-text">STEP1(入力)</h3>
+          <%= image_tag "training_form.png", class:"list-pict" %>
+          <p>シンプルな入力フォーム!</p>
+        </li>
+      </div>
+      <div class="list-box">
+        <li class="list">
+          <span class='list-number'>②</span>
+          <h3 class="step-text">STEP2(確認)</h3>
+          <%= image_tag "weight_check.png", class:"list-pict" %>
+          <p>記録データは差分も表示!</p>
+        </li>
+      </div>
+    </ul>
+    <ul class="reason-list">
+    <div class="list-box">
+      <li class="list">
+      <h3 class="function-text">★機能一例(MAX記録 確認機能)</h3>
+        <%= image_tag "max_check.png", class:"list-pict-max" %>
+        <p>種目別MAX記録!<br>記録更新にチャレンジしよう!</br></p>
+      </li>
+    </div>
+      <div class="list-box">
+      <li class="list">
+      <h3 class="function-text">★機能一例(グラフ 確認機能)</h3>
+        <%= image_tag "graph_check.png", class:"list-pict" %>
+        <p>グラフで体重・体脂肪推移表示!<br>数値傾向を素早く察知</br></p>
+      </li>
+    </div>
+    </ul>
+
 	</div>
 </section>
  
@@ -47,13 +83,17 @@
 <section id="start">
 <div class="container">
 	<h2>~TrainingMemoを始めよう！~</h2>
+  <div class="start-box">
 	   <%= image_tag "start_image.jpg" %>
       <div class="user_nav">
         <% if user_signed_in? %>
           <%= link_to "マイページへ進む", user_path(current_user.id), method: :get, class: "btn btn-success btn-lg" %>
         <% else %>
           <%= link_to "新規登録してTrainingMemoを始める", new_user_registration_path, class: "btn btn-success btn-lg" %>
-      </div>
         <% end %>
+        <p class="free">全ての機能は<span class="free-text">無料</span>です！<br>
+        さあ、始めましょう！</p>
+      </div>
+    </div>
 </section>
 </main>
