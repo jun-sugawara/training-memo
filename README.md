@@ -31,8 +31,9 @@ https://trainingmemo.com
 - 言語:HTML,CSS,Ruby,JavaScript,SQL  
 - フレームワーク:Ruby on Rails  
 - データベース:MySQL
-- 本番環境：AWS EC2  
-- デプロイ：Capistranoを用いた自動デプロイ 
+- 本番環境:AWS EC2  
+- デプロイ:Capistranoを用いた自動デプロイ 
+- SSL:Route53,Certificate Manager,Application Load Balancerを用いたhttps化
 - Rspecを用いた単体テスト及び結合テスト（計71項目）  
 - レスポンシブ対応（PC・スマートフォン・タブレット端末）  
 - rubocopを用いたコード整形  
